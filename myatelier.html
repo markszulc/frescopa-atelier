@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper); min-height: 100vh;">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="myatelier.html" brand-href="index.html" cart-count="{{ cart }}" solid="{{ true }}" hint-size="100%,72px"></x-import>
+
+  <!-- ===== Sign in ===== -->
+  <sc-if value="{{ signedOut }}" hint-placeholder-val="{{ true }}">
+    <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--paper-2); padding: calc(72px + 2rem) var(--gutter) 4rem;">
+      <div style="width: 100%; max-width: 420px; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); padding: clamp(1.8rem, 1.2rem + 2vw, 2.8rem); box-shadow: var(--shadow-lg);">
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Eyebrow" hint-size="140px,20px">Your account</x-import>
+        <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: 2.2rem; color: var(--burgundy); margin-top: 0.8rem; line-height: 1.05;">Welcome back.</h1>
+        <p style="color: var(--ink-soft); margin-top: 0.8rem; line-height: 1.6;">Sign in to set up your Atelier, manage supplies, and keep an eye on the machine.</p>
+        <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.8rem;">
+          <label style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; color: var(--ink);">Email
+            <div style="margin-top: 0.5rem;">
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.Input" type="email" placeholder="you@example.com" hint-size="100%,48px"></x-import>
+            </div>
+          </label>
+          <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" arrow="{{ true }}" onClick="{{ signIn }}" style="{{ fullBtn }}" hint-size="100%,48px">Continue</x-import>
+        </div>
+        <p style="color: var(--ink-soft); font-size: 0.85rem; margin-top: 1.4rem; text-align: center;">This is a demo — any email will do.</p>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ===== Dashboard ===== -->
+  <sc-if value="{{ signedIn }}" hint-placeholder-val="{{ false }}">
+    <section style="padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.6rem)) 0 var(--section-y); background: var(--paper);">
+      <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Eyebrow" hint-size="140px,20px">My Atelier</x-import>
+            <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 1.4rem + 2.6vw, 3.2rem); color: var(--burgundy); margin-top: 0.8rem; line-height: 1.02;">Good morning.</h1>
+            <p style="color: var(--ink-soft); font-size: 1.0625rem; margin-top: 0.6rem;">Everything's running smoothly. Here's your machine and your supplies.</p>
+          </div>
+          <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" as="button" onClick="{{ signOut }}" hint-size="90px,24px">Sign out</x-import>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-top: 2.6rem; align-items: start;">
+
+          <!-- Device -->
+          <div style="grid-column: 1 / -1; background: var(--charcoal); color: var(--cream); border-radius: var(--r-xl); padding: clamp(1.6rem, 1rem + 2vw, 2.4rem); overflow: hidden; position: relative;">
+            <div style="position: absolute; inset: 0; background: radial-gradient(70% 120% at 100% 0%, color-mix(in oklch, var(--amber) 16%, transparent), transparent 60%); pointer-events: none;"></div>
+            <div style="position: relative; display: flex; gap: clamp(1.2rem, 1rem + 2vw, 2.4rem); flex-wrap: wrap; align-items: center;">
+              <div style="width: 148px; height: 118px; border-radius: var(--r-lg); overflow: hidden; flex: 0 0 auto; box-shadow: var(--shadow-md);">
+                <img src="assets/images/hero-machine.jpg" alt="The Atelier" style="width: 100%; height: 100%; object-fit: cover; object-position: center 42%;" />
+              </div>
+              <div style="flex: 1; min-width: 220px;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--amber);">Bean-to-cup · Cream finish</span>
+                <h2 style="font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--cream); margin: 0.3rem 0 0;">The Atelier</h2>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.7rem;">
+                  <span style="width: 9px; height: 9px; border-radius: 50%; background: oklch(0.72 0.15 150); box-shadow: 0 0 0 3px color-mix(in oklch, oklch(0.72 0.15 150) 28%, transparent);"></span>
+                  <span style="color: var(--cream); font-size: 0.95rem;">Connected · last brew today, 7:12am</span>
+                </div>
+                <div style="display: flex; gap: 1.4rem; margin-top: 1.2rem; flex-wrap: wrap; color: var(--cream-soft); font-size: 0.85rem; font-family: var(--font-mono); letter-spacing: 0.04em;">
+                  <span>SERIAL FR-ATL-001-2847</span>
+                  <span>FIRMWARE v2.4</span>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.7rem; flex: 0 0 auto;">
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="cream" href="#" hint-size="160px,42px">Run diagnostics</x-import>
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" href="#" style="color: var(--cream);" hint-size="160px,42px">Restart machine</x-import>
+              </div>
+            </div>
+          </div>
+
+          <!-- Setup -->
+          <div style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 1rem + 1.5vw, 2rem); box-shadow: var(--shadow-md);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;">
+              <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--burgundy); margin: 0;">Get set up</h3>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--ink-soft);">{{ setupLabel }}</span>
+            </div>
+            <div style="height: 8px; border-radius: var(--r-pill); background: var(--paper-3); margin-top: 1rem; overflow: hidden;">
+              <div style="{{ pctStyle }}"></div>
+            </div>
+            <div style="margin-top: 1.1rem;">
+              <sc-for list="{{ setupItems }}" as="s" hint-placeholder-count="6">
+                <button type="button" onClick="{{ s.onClick }}" style="display: flex; align-items: center; gap: 0.85rem; width: 100%; background: none; border: none; cursor: pointer; text-align: left; padding: 0.55rem 0;">
+                  <span style="{{ s.boxStyle }}">
+                    <sc-if value="{{ s.done }}" hint-placeholder-val="{{ false }}">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--cream)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-11"/></svg>
+                    </sc-if>
+                  </span>
+                  <span style="{{ s.textStyle }}">{{ s.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- Supplies -->
+          <div style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 1rem + 1.5vw, 2rem); box-shadow: var(--shadow-md);">
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--burgundy); margin: 0;">Your beans</h3>
+            <p style="color: var(--ink-soft); margin-top: 0.5rem; line-height: 1.55;">House blend, 250 g. {{ subLine }}</p>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding: 0.9rem 1.1rem; background: var(--paper-2); border-radius: var(--r-md);">
+              <span style="color: var(--ink-soft); font-size: 0.9rem;">Next delivery</span>
+              <span style="font-family: var(--font-display); font-weight: 700; color: var(--ink);">{{ nextDelivery }}</span>
+            </div>
+            <p style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; color: var(--ink); margin: 1.3rem 0 0.6rem;">Delivery every</p>
+            <div style="display: flex; gap: 0.5rem;">
+              <sc-for list="{{ cadencePills }}" as="c" hint-placeholder-count="3">
+                <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+            <div style="display: flex; gap: 0.7rem; margin-top: 1.4rem; flex-wrap: wrap;">
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" onClick="{{ reorder }}" hint-size="150px,42px">Reorder now</x-import>
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" onClick="{{ toggleSub }}" style="color: var(--burgundy);" hint-size="150px,42px">{{ subToggleLabel }}</x-import>
+            </div>
+            <sc-if value="{{ supplyMsg }}" hint-placeholder-val="{{ false }}">
+              <p style="color: var(--terracotta); font-size: 0.9rem; margin-top: 0.9rem;">{{ supplyMsg }}</p>
+            </sc-if>
+          </div>
+
+          <!-- Maintenance -->
+          <div style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 1rem + 1.5vw, 2rem); box-shadow: var(--shadow-md);">
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--burgundy); margin: 0;">Keeping it happy</h3>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--line);">
+              <div>
+                <p style="color: var(--ink); font-weight: 500; margin: 0;">Descale</p>
+                <p style="color: var(--ink-soft); font-size: 0.9rem; margin: 0.2rem 0 0;">{{ descaleStatus }}</p>
+              </div>
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" as="button" size="sm" onClick="{{ markDescaled }}" hint-size="120px,22px">{{ descaleAction }}</x-import>
+            </div>
+            <div style="margin-top: 1rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <p style="color: var(--ink); font-weight: 500; margin: 0;">Water filter</p>
+                <span style="color: var(--ink-soft); font-size: 0.9rem;">60% life left</span>
+              </div>
+              <div style="height: 8px; border-radius: var(--r-pill); background: var(--paper-3); margin-top: 0.6rem; overflow: hidden;">
+                <div style="height: 100%; width: 60%; background: var(--amber); border-radius: var(--r-pill);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 1rem + 1.5vw, 2rem); box-shadow: var(--shadow-md);">
+            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--burgundy); margin: 0;">Help and warranty</h3>
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-top: 1rem; color: var(--ink-soft); font-size: 0.95rem;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span>Warranty active until July 2028.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.2rem;">
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#" arrow="{{ true }}" hint-size="160px,24px">Setup and care guides</x-import>
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#" arrow="{{ true }}" hint-size="160px,24px">Book a service visit</x-import>
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#" arrow="{{ true }}" hint-size="160px,24px">Talk to a real person</x-import>
+            </div>
+          </div>
+
+          <!-- Orders -->
+          <div style="grid-column: 1 / -1; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 1rem + 1.5vw, 2rem); box-shadow: var(--shadow-md);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;">
+              <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--burgundy); margin: 0;">Recent orders</h3>
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#" size="sm" arrow="{{ true }}" hint-size="90px,22px">View all</x-import>
+            </div>
+            <sc-for list="{{ orders }}" as="o" hint-placeholder-count="3">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line);">
+                <div>
+                  <p style="color: var(--ink); font-weight: 500; margin: 0;">{{ o.item }}</p>
+                  <p style="color: var(--ink-soft); font-size: 0.88rem; margin: 0.2rem 0 0;">{{ o.date }} · {{ o.status }}</p>
+                </div>
+                <span style="font-family: var(--font-display); font-weight: 700; color: var(--ink);">{{ o.price }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0, signedIn: false, setup: [true, true, false, false, false, false], cadence: '4', subscribed: true, descaled: false, supplyMsg: '' };
+  componentDidMount() {
+    try {
+      this.setState({
+        cart: parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0,
+        signedIn: localStorage.getItem('frescopa_signed_in') === '1',
+        setup: JSON.parse(localStorage.getItem('frescopa_setup') || 'null') || [true, true, false, false, false, false],
+        cadence: localStorage.getItem('frescopa_cadence') || '4',
+        subscribed: localStorage.getItem('frescopa_sub') !== '0',
+        descaled: localStorage.getItem('frescopa_descaled') === '1',
+      });
+    } catch (e) {}
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); clearTimeout(this._t); }
+  save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  signIn = () => { this.save('frescopa_signed_in', '1'); this.setState({ signedIn: true }); };
+  signOut = () => { this.save('frescopa_signed_in', '0'); this.setState({ signedIn: false }); };
+  toggleStep = (i) => this.setState((s) => {
+    const setup = s.setup.slice(); setup[i] = !setup[i];
+    this.save('frescopa_setup', JSON.stringify(setup));
+    return { setup };
+  });
+  setCadence = (c) => { this.save('frescopa_cadence', c); this.setState({ cadence: c }); };
+  toggleSub = () => this.setState((s) => { const subscribed = !s.subscribed; this.save('frescopa_sub', subscribed ? '1' : '0'); return { subscribed }; });
+  markDescaled = () => { this.save('frescopa_descaled', '1'); this.setState({ descaled: true }); };
+  reorder = () => {
+    this.setState((s) => {
+      const cart = s.cart + 1;
+      this.save('frescopa_cart', String(cart));
+      return { cart, supplyMsg: 'A bag of House blend is on its way.' };
+    });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ supplyMsg: '' }), 2600);
+  };
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'atelier.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Coffee & tea', href: 'index.html#feed' },
+      { label: 'Café', href: 'index.html#cafe' },
+    ];
+    const steps = [
+      'Unbox and place it on the counter',
+      'Fill and fit the water tank',
+      'Connect it to your Wi-Fi',
+      'Pair the Fréscopa app',
+      'Run the first rinse',
+      'Calibrate your first cup',
+    ];
+    const done = this.state.setup;
+    const boxBase = { width: '26px', height: '26px', borderRadius: '50%', display: 'grid', placeItems: 'center', flex: '0 0 auto', transition: 'all 0.2s var(--ease-quint)' };
+    const setupItems = steps.map((label, i) => ({
+      label,
+      done: done[i],
+      onClick: () => this.toggleStep(i),
+      boxStyle: done[i]
+        ? { ...boxBase, background: 'var(--terracotta)', border: '1px solid var(--terracotta)' }
+        : { ...boxBase, background: 'transparent', border: '1.5px solid var(--line)' },
+      textStyle: { fontSize: '1rem', color: done[i] ? 'var(--ink-soft)' : 'var(--ink)' },
+    }));
+    const completed = done.filter(Boolean).length;
+    const pct = Math.round((completed / steps.length) * 100);
+
+    const weeks = parseInt(this.state.cadence, 10) || 4;
+    const d = new Date(); d.setDate(d.getDate() + weeks * 7);
+    const nextDelivery = this.state.subscribed
+      ? d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'long' })
+      : 'Paused';
+
+    const cadenceDefs = [{ k: '2', l: '2 weeks' }, { k: '4', l: '4 weeks' }, { k: '6', l: '6 weeks' }];
+    const pillBase = { fontFamily: 'var(--font-body)', fontSize: '0.88rem', fontWeight: 500, padding: '0.45rem 0.95rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.25s var(--ease-quint)' };
+    const cadencePills = cadenceDefs.map((c) => ({
+      label: c.l,
+      onClick: () => this.setCadence(c.k),
+      style: c.k === this.state.cadence
+        ? { ...pillBase, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' }
+        : { ...pillBase, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' },
+    }));
+
+    const orders = [
+      { item: 'The Atelier — Cream', date: '18 June 2026', status: 'Delivered', price: '$2,199' },
+      { item: 'House blend beans · 250g', date: '2 July 2026', status: 'Delivered', price: '$18' },
+      { item: 'Compostable pods · 40 pack', date: '2 July 2026', status: 'Delivered', price: '$15' },
+    ];
+
+    return {
+      nav,
+      cart: this.state.cart,
+      signedIn: this.state.signedIn,
+      signedOut: !this.state.signedIn,
+      signIn: this.signIn,
+      signOut: this.signOut,
+      fullBtn: { width: '100%', justifyContent: 'center' },
+      setupItems,
+      setupLabel: completed + ' of ' + steps.length,
+      pctStyle: { height: '100%', width: pct + '%', background: 'var(--terracotta)', borderRadius: 'var(--r-pill)', transition: 'width 0.4s var(--ease-quint)' },
+      subLine: this.state.subscribed ? 'Subscription active.' : 'Subscription paused.',
+      subToggleLabel: this.state.subscribed ? 'Pause subscription' : 'Resume subscription',
+      toggleSub: this.toggleSub,
+      reorder: this.reorder,
+      supplyMsg: this.state.supplyMsg,
+      nextDelivery,
+      cadencePills,
+      descaleStatus: this.state.descaled ? 'Done today. Next due in about three months.' : 'Due in about 12 days.',
+      descaleAction: this.state.descaled ? 'Descaled' : 'Mark as done',
+      markDescaled: this.markDescaled,
+      orders,
+    };
+  }
+}
+</script>
+</body>
+</html>

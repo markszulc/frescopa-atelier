@@ -43,7 +43,7 @@
     "price": "2199",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "Atelier.dc.html",
+    "url": "atelier.html",
     "shippingDetails": { "@type": "OfferShippingDetails", "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" }, "deliveryTime": { "@type": "ShippingDeliveryTime", "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "DAY" } } },
     "hasMerchantReturnPolicy": { "@type": "MerchantReturnPolicy", "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 30 }
   },
@@ -92,15 +92,15 @@
 </template>
 <div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
 
-  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="Machines.dc.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px"></x-import>
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="machines.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px"></x-import>
 
   <!-- ===== Product ===== -->
   <section style="background: var(--paper); padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.6rem)) 0 var(--section-y);">
     <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
       <nav style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--ink-soft); display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-        <a href="Home.dc.html" style="color: var(--ink-soft);">Home</a>
+        <a href="index.html" style="color: var(--ink-soft);">Home</a>
         <span aria-hidden="true">/</span>
-        <a href="Machines.dc.html" style="color: var(--ink-soft);">Machines</a>
+        <a href="machines.html" style="color: var(--ink-soft);">Machines</a>
         <span aria-hidden="true">/</span>
         <span style="color: var(--ink);">The Atelier</span>
       </nav>
@@ -494,10 +494,10 @@ class Component extends DCLogic {
   };
   renderVals() {
     const nav = [
-      { label: 'The Atelier', href: 'Landing.dc.html' },
-      { label: 'Machines', href: 'Machines.dc.html' },
-      { label: 'Coffee & tea', href: 'Home.dc.html#feed' },
-      { label: 'Café', href: 'Home.dc.html#cafe' },
+      { label: 'The Atelier', href: 'atelier.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Coffee & tea', href: 'index.html#feed' },
+      { label: 'Café', href: 'index.html#cafe' },
     ];
     const active = this.state.activeImg;
     const thumbBase = { padding: 0, border: 'none', borderRadius: 'var(--r-md)', overflow: 'hidden', aspectRatio: '1 / 1', cursor: 'pointer', background: 'var(--paper-3)', transition: 'box-shadow 0.2s var(--ease-quint)' };
@@ -586,7 +586,7 @@ class Component extends DCLogic {
       howShow2: aStep === 2,
       howShow3: aStep === 3,
       cart: this.state.cart,
-      goAccount: () => { window.location.href = 'MyAtelier.dc.html'; },
+      goAccount: () => { window.location.href = 'myatelier.html'; },
       addToCart: this.addToCart,
       addAction: this.addAction,
       show0: active === 0,

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="machines.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px"></x-import>
+
+  <!-- ===== Intro ===== -->
+  <section style="background: var(--paper-2); padding: calc(72px + clamp(2.5rem, 1.5rem + 3vw, 4.5rem)) 0 clamp(2rem, 1.5rem + 2vw, 3rem);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <nav style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--ink-soft); display: flex; gap: 0.5rem; align-items: center;">
+        <a href="index.html" style="color: var(--ink-soft);">Home</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: var(--ink);">Machines</span>
+      </nav>
+      <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem); color: var(--burgundy); margin-top: 1rem;">Made in the workshop.</h1>
+      <p style="color: var(--ink-soft); font-size: 1.125rem; margin-top: 1rem; line-height: 1.6; max-width: 52ch;">Four families of machine, each tuned by hand for a different kind of morning. Start with how you like to make it — we'll help you find the rest.</p>
+    </div>
+  </section>
+
+  <!-- ===== Category nav ===== -->
+  <section style="background: var(--paper); position: sticky; top: 72px; z-index: 20; border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);">
+    <div style="max-width: var(--content); margin-inline: auto; padding: 1rem var(--gutter); display: flex; flex-wrap: wrap; gap: 0.6rem;">
+      <sc-for list="{{ filterPills }}" as="pill" hint-placeholder-count="5">
+        <button type="button" onClick="{{ pill.onClick }}" style="{{ pill.style }}">{{ pill.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== Bands ===== -->
+  <sc-for list="{{ bands }}" as="band" hint-placeholder-count="4">
+    <section style="{{ band.sectionStyle }}">
+      <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+
+        <!-- Band header -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem 3rem; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 1.6rem;">
+          <div>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">{{ band.eyebrow }}</span>
+            <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.4rem); color: var(--burgundy); margin: 0.5rem 0 0;">{{ band.title }}</h2>
+            <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; margin: 0.8rem 0 0; max-width: 48ch;">{{ band.value }}</p>
+          </div>
+          <div style="border-left: 2px solid var(--amber); padding-left: 1.1rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem; color: var(--ink-soft);">How they differ</span>
+            <p style="color: var(--ink); font-size: 0.98rem; line-height: 1.55; margin: 0.5rem 0 0;">{{ band.separator }}</p>
+          </div>
+        </div>
+
+        <!-- Premium feature -->
+        <sc-if value="{{ band.feature }}" hint-placeholder-val="{{ false }}">
+          <article style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); margin-top: 2.5rem;">
+            <div style="position: relative; min-height: 340px; overflow: hidden; background: var(--paper-3);">
+              <sc-if value="{{ band.feature.image }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ band.feature.image }}" alt="{{ band.feature.name }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%;" />
+              </sc-if>
+              <div style="position: absolute; top: 1.1rem; left: 1.1rem;">
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Badge" variant="burgundy" hint-size="60px,26px">{{ band.feature.badge }}</x-import>
+              </div>
+            </div>
+            <div style="padding: clamp(1.6rem, 1rem + 2vw, 2.6rem); display: flex; flex-direction: column; gap: 0.7rem;">
+              <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">{{ band.feature.tagline }}</span>
+              <h3 style="font-family: var(--font-display); font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem); color: var(--burgundy); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0;">{{ band.feature.name }}</h3>
+              <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; margin: 0.2rem 0 0;">{{ band.feature.blurb }}</p>
+              <ul style="list-style: none; padding: 0; margin: 0.4rem 0 0; display: flex; flex-direction: column; gap: 0.55rem;">
+                <sc-for list="{{ band.feature.features }}" as="f" hint-placeholder-count="3">
+                  <li style="display: flex; gap: 0.6rem; align-items: baseline; color: var(--ink); font-size: 0.98rem; line-height: 1.5;">
+                    <span aria-hidden="true" style="color: var(--terracotta); font-weight: 700;">→</span>
+                    <span>{{ f }}</span>
+                  </li>
+                </sc-for>
+              </ul>
+              <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--line);">
+                <span style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--ink);">{{ band.feature.price }}</span>
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="{{ band.feature.href }}" arrow="{{ true }}" hint-size="150px,44px">{{ band.feature.action }}</x-import>
+              </div>
+            </div>
+          </article>
+        </sc-if>
+
+        <!-- Companions under a flagship (secondary) -->
+        <sc-if value="{{ band.hasCompanions }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top: 2.2rem; display: flex; flex-direction: column; gap: 1rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem; color: var(--ink-soft);">Also in this family</span>
+            <sc-for list="{{ band.companions }}" as="m" hint-placeholder-count="1">
+              <article style="display: grid; grid-template-columns: minmax(0, 190px) 1fr; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;">
+                <div style="position: relative; min-height: 150px; overflow: hidden; background: var(--paper-3);">
+                  <sc-if value="{{ m.image }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ m.image }}" alt="{{ m.name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: center 42%;" />
+                  </sc-if>
+                  <sc-if value="{{ m.noImage }}" hint-placeholder-val="{{ false }}">
+                    <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ m.id }}" shape="rect" placeholder="{{ m.slotLabel }}" hint-size="100%,100%"></x-import>
+                  </sc-if>
+                </div>
+                <div style="padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 0.35rem;">
+                    <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; color: var(--terracotta);">{{ m.catLabel }}</span>
+                    <h3 style="font-family: var(--font-display); font-size: 1.35rem; color: var(--burgundy); font-weight: 700; line-height: 1.12; margin: 0;">{{ m.name }}</h3>
+                    <p style="color: var(--ink-soft); font-size: 0.94rem; line-height: 1.5; margin: 0;">{{ m.blurb }}</p>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 1.1rem;">
+                    <span style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--ink);">{{ m.price }}</span>
+                    <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="{{ m.href }}" size="sm" arrow="{{ true }}" hint-size="110px,22px">{{ m.action }}</x-import>
+                  </div>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <!-- Solo horizontal card -->
+        <sc-if value="{{ band.solo }}" hint-placeholder-val="{{ false }}">
+          <article style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-sm); margin-top: 2.2rem;">
+            <div style="position: relative; min-height: 300px; overflow: hidden; background: var(--paper-3);">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ band.solo.id }}" shape="rect" placeholder="{{ band.solo.slotLabel }}" hint-size="100%,100%"></x-import>
+            </div>
+            <div style="padding: clamp(1.6rem, 1rem + 2vw, 2.4rem); display: flex; flex-direction: column; gap: 0.6rem; justify-content: center;">
+              <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">{{ band.solo.catLabel }}</span>
+              <h3 style="font-family: var(--font-display); font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.2rem); color: var(--burgundy); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">{{ band.solo.name }}</h3>
+              <p style="color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6; margin: 0.2rem 0 0; max-width: 42ch;">{{ band.solo.blurb }}</p>
+              <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <span style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--ink);">{{ band.solo.price }}</span>
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="cream" href="{{ band.solo.href }}" arrow="{{ true }}" hint-size="130px,44px">{{ band.solo.action }}</x-import>
+              </div>
+            </div>
+          </article>
+        </sc-if>
+
+        <!-- Card grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2.2rem;">
+          <sc-for list="{{ band.machines }}" as="m" hint-placeholder-count="3">
+            <article style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column;">
+              <div style="position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-3);">
+                <sc-if value="{{ m.image }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ m.image }}" alt="{{ m.name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: center 42%;" />
+                </sc-if>
+                <sc-if value="{{ m.noImage }}" hint-placeholder-val="{{ false }}">
+                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ m.id }}" shape="rect" placeholder="{{ m.slotLabel }}" hint-size="100%,100%"></x-import>
+                </sc-if>
+              </div>
+              <div style="padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">{{ m.catLabel }}</span>
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--burgundy); font-weight: 700; line-height: 1.15;">{{ m.name }}</h3>
+                <p style="color: var(--ink-soft); font-size: 0.94rem; flex: 1; line-height: 1.55;">{{ m.blurb }}</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.7rem; padding-top: 0.9rem; border-top: 1px solid var(--line);">
+                  <span style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink);">{{ m.price }}</span>
+                  <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="{{ m.href }}" size="sm" arrow="{{ true }}" hint-size="120px,22px">{{ m.action }}</x-import>
+                </div>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+
+      </div>
+    </section>
+  </sc-for>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0, filter: 'all' };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    this.setState({ cart: c });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  setFilter = (f) => this.setState({ filter: f });
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'atelier.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Coffee & tea', href: 'index.html#feed' },
+      { label: 'Café', href: 'index.html#cafe' },
+    ];
+
+    const allBands = [
+      {
+        key: 'bean',
+        eyebrow: 'Bean-to-cup · Premium',
+        title: 'The thinking machines',
+        value: 'Whole beans in, a finished cup out — milk, timing and all. The most hands-off way to drink well, and the only machines that actually learn your taste.',
+        separator: 'The Atelier learns and adapts on its own; the Mini carries the same brain to a smaller counter.',
+        feature: {
+          id: 'm-atelier', name: 'The Atelier', tagline: 'The flagship', badge: 'New',
+          image: 'assets/images/hero-machine.jpg', price: '$2,199',
+          blurb: 'It senses what you like, builds a taste profile, reads the day ahead and pours accordingly — quietly taking care of the rest.',
+          features: [
+            'Learns your taste cup by cup, no dialing-in',
+            'Reads your calendar and mood to pace the morning',
+            'Reorders beans before you run out',
+          ],
+          href: 'atelier.html', action: 'View the Atelier',
+        },
+        machines: [
+          { id: 'm-mini', name: 'The Atelier Mini', catLabel: 'Bean-to-cup', price: '$799', blurb: 'The same clever heart, sized for smaller kitchens.', image: '', noImage: true, slotLabel: 'The Atelier Mini', href: '#', action: 'Join the list' },
+        ],
+      },
+      {
+        key: 'espresso',
+        eyebrow: 'Espresso',
+        title: 'For the hands-on ritual',
+        value: 'Grind, tamp, pull. Machines for people who want to be the barista — precise, tactile, and built to reward practice.',
+        separator: 'The Barista gives you full manual control; the Everyday keeps it simple for a reliable shot each morning.',
+        feature: null,
+        machines: [
+          { id: 'm-barista', name: 'The Barista', catLabel: 'Espresso', price: '$899', blurb: 'A hands-on machine for the morning ritualist.', image: '', noImage: true, slotLabel: 'The Barista', href: '#', action: 'Join the list' },
+          { id: 'm-everyday', name: 'The Everyday', catLabel: 'Espresso', price: '$499', blurb: 'Honest espresso, every single morning.', image: '', noImage: true, slotLabel: 'The Everyday', href: '#', action: 'Join the list' },
+        ],
+      },
+      {
+        key: 'filter',
+        eyebrow: 'Filter',
+        title: 'Slow and even',
+        value: 'Clean, balanced filter coffee for the unhurried cup — the kind you sip through a quiet morning.',
+        separator: 'One machine, perfected: even saturation and gentle timing, so every batch tastes the same.',
+        feature: null,
+        machines: [
+          { id: 'm-slowpour', name: 'The Slow Pour', catLabel: 'Filter', price: '$279', blurb: 'Filter coffee, unhurried and beautifully even.', image: '', noImage: true, slotLabel: 'The Slow Pour', href: '#', action: 'Join the list' },
+        ],
+      },
+      {
+        key: 'cold',
+        eyebrow: 'Cold brew',
+        title: 'Ready by morning',
+        value: 'Smooth, low-acid cold brew steeped overnight — poured cold straight from the fridge.',
+        separator: 'Set it before bed; the Carafe does the steeping while you sleep.',
+        feature: null,
+        machines: [
+          { id: 'm-carafe', name: 'The Carafe', catLabel: 'Cold brew', price: '$179', blurb: 'Smooth cold brew, ready and waiting by morning.', image: '', noImage: true, slotLabel: 'The Carafe', href: '#', action: 'Join the list' },
+        ],
+      },
+    ];
+
+    const filter = this.state.filter;
+    const bands = (filter === 'all' ? allBands : allBands.filter((b) => b.key === filter))
+      .map((b, i) => ({
+        ...b,
+        solo: (!b.feature && b.machines.length === 1) ? b.machines[0] : null,
+        companions: b.feature ? b.machines : [],
+        hasCompanions: b.feature && b.machines.length > 0,
+        machines: (!b.feature && b.machines.length > 1) ? b.machines : [],
+        sectionStyle: {
+          background: i % 2 === 0 ? 'var(--paper)' : 'var(--paper-2)',
+          padding: 'clamp(2.6rem, 2rem + 2vw, 4rem) 0',
+        },
+      }));
+
+    const defs = [
+      { key: 'all', label: 'All machines' },
+      { key: 'bean', label: 'Bean-to-cup' },
+      { key: 'espresso', label: 'Espresso' },
+      { key: 'filter', label: 'Filter' },
+      { key: 'cold', label: 'Cold brew' },
+    ];
+    const base = { fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: 500, padding: '0.5rem 1.1rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.25s var(--ease-quint)' };
+    const filterPills = defs.map((d) => ({
+      label: d.label,
+      onClick: () => this.setFilter(d.key),
+      style: d.key === filter
+        ? { ...base, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' }
+        : { ...base, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' },
+    }));
+
+    return { nav, cart: this.state.cart, bands, filterPills, goAccount: () => { window.location.href = 'myatelier.html'; } };
+  }
+}
+</script>
+</body>
+</html>
