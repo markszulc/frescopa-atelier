@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="blog.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <!-- Intro -->
+  <section style="background: var(--paper-2); padding: calc(72px + clamp(2.5rem, 1.5rem + 3vw, 4.5rem)) 0 clamp(2rem, 1.5rem + 2vw, 3rem);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">The Journal</span>
+      <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem); color: var(--burgundy); margin: 0.6rem 0 0;">Notes on the morning ritual.</h1>
+      <p style="color: var(--ink-soft); font-size: 1.125rem; margin-top: 1rem; line-height: 1.6; max-width: 54ch;">Brewing guides, origin stories, and small thoughts on doing mornings well — from the people who make the coffee and the machines.</p>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section style="background: var(--paper); padding: clamp(2.5rem, 2rem + 2vw, 4rem) 0 clamp(1.5rem, 1rem + 2vw, 2.5rem);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <a href="{{ featured.href }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); color: inherit;">
+        <div style="position: relative; min-height: 340px; overflow: hidden; background: var(--paper-3);">
+          <sc-if value="{{ featured.image }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ featured.image }}" alt="{{ featured.title }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          </sc-if>
+          <div style="position: absolute; top: 1.1rem; left: 1.1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Badge" variant="amber" hint-size="60px,26px">Featured</x-import>
+          </div>
+        </div>
+        <div style="padding: clamp(1.6rem, 1rem + 2vw, 2.8rem); display: flex; flex-direction: column; gap: 0.8rem; justify-content: center;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">{{ featured.cat }}</span>
+          <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.7rem); color: var(--burgundy); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0;">{{ featured.title }}</h2>
+          <p style="color: var(--ink-soft); font-size: 1.08rem; line-height: 1.6; margin: 0;">{{ featured.excerpt }}</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.6rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; color: var(--ink-soft);">{{ featured.meta }}</span>
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="{{ featured.href }}" size="md" arrow="{{ true }}" hint-size="110px,24px">Read the story</x-import>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Feed -->
+  <section style="background: var(--paper); padding: clamp(1.5rem, 1rem + 2vw, 2.5rem) 0 var(--section-y);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; border-bottom: 1px solid var(--line); padding-bottom: 1.4rem;">
+        <sc-for list="{{ filterPills }}" as="pill" hint-placeholder-count="6">
+          <button type="button" onClick="{{ pill.onClick }}" style="{{ pill.style }}">{{ pill.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem 1.8rem; margin-top: 2.6rem;">
+        <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
+          <a href="{{ post.href }}" style="display: flex; flex-direction: column; gap: 0.9rem; color: inherit;">
+            <div style="position: relative; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--paper-3);">
+              <sc-if value="{{ post.image }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ post.image }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;" />
+              </sc-if>
+              <sc-if value="{{ post.slot }}" hint-placeholder-val="{{ false }}">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ post.slotId }}" shape="rect" placeholder="{{ post.title }}" hint-size="100%,100%"></x-import>
+              </sc-if>
+            </div>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; color: var(--terracotta);">{{ post.cat }}</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--burgundy); font-weight: 700; line-height: 1.16; margin: 0;">{{ post.title }}</h3>
+            <p style="color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55; margin: 0; flex: 1;">{{ post.excerpt }}</p>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">{{ post.meta }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0, filter: 'all' };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    this.setState({ cart: c });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  setFilter = (f) => this.setState({ filter: f });
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+
+    const featured = {
+      cat: 'The Atelier', title: 'How the Atelier learns your taste',
+      excerpt: 'It doesn\u2019t guess, and it doesn\u2019t need a questionnaire. Here\u2019s what actually happens in the first two weeks on your counter — and why your cup keeps getting better.',
+      meta: 'June 2026 · 6 min read', image: 'assets/images/hero-machine.jpg', href: 'article.html',
+    };
+
+    const all = [
+      { id: 'slow-pour', cat: 'Brewing', title: 'In praise of the slow pour', excerpt: 'Why the unhurried cup rewards your patience — and how to get the water right.', meta: 'May 2026 · 4 min', image: 'assets/images/espresso-pour.jpg', href: '#' },
+      { id: 'soho-morning', cat: 'Café life', title: 'A morning in our SoHo café', excerpt: 'Doors at seven, the first grind at 7:02. A few hours behind the bar at the flagship.', meta: 'May 2026 · 3 min', image: 'assets/images/cafe-interior.jpg', href: '#' },
+      { id: 'single-origin', cat: 'Origins', title: 'Single origin, explained', excerpt: 'What \u201Ctraceable to a single farm\u201D really means, and why it changes the cup.', meta: 'Apr 2026 · 5 min', slot: true, href: '#' },
+      { id: 'tea-hour', cat: 'Café life', title: 'Tea, and the quiet hour', excerpt: 'A small case for slowing down in the afternoon, one loose-leaf pot at a time.', meta: 'Apr 2026 · 3 min', image: 'assets/images/tea-moment.jpg', href: '#' },
+      { id: 'grounds', cat: 'Sustainability', title: 'Nothing wasted, right down to the grounds', excerpt: 'Where your spent coffee goes after the cup — and how the Atelier keeps track.', meta: 'Mar 2026 · 4 min', image: 'assets/images/sustainability.jpg', href: '#' },
+      { id: 'espresso-dial', cat: 'Brewing', title: 'Dialling in your first espresso', excerpt: 'Grind, dose, time. The three dials that turn a decent shot into a great one.', meta: 'Mar 2026 · 5 min', slot: true, href: '#' },
+    ];
+
+    const cats = ['The Atelier', 'Brewing', 'Origins', 'Café life', 'Sustainability'];
+    const filter = this.state.filter;
+    const posts = (filter === 'all' ? all : all.filter((p) => p.cat === filter)).map((p) => ({ ...p, slotId: 'blog-' + p.id }));
+
+    const defs = [{ key: 'all', label: 'All posts' }, ...cats.map((c) => ({ key: c, label: c }))];
+    const base = { fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: 500, padding: '0.5rem 1.1rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.25s var(--ease-quint)' };
+    const filterPills = defs.map((d) => ({
+      label: d.label,
+      onClick: () => this.setFilter(d.key),
+      style: d.key === filter
+        ? { ...base, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' }
+        : { ...base, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' },
+    }));
+
+    return { nav, cart: this.state.cart, featured, posts, filterPills, goAccount: () => { window.location.href = 'myatelier.html'; } };
+  }
+}
+</script>
+</body>
+</html>

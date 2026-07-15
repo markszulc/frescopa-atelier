@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper); min-height: 100vh;">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" on-cart="{{ goCart }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <section style="padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.5rem)) 0 var(--section-y);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <nav style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--ink-soft); display: flex; gap: 0.5rem; align-items: center;">
+        <a href="index.html" style="color: var(--ink-soft);">Home</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: var(--ink);">Your bag</span>
+      </nav>
+      <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 1.5rem + 2.4vw, 3.2rem); color: var(--burgundy); margin: 0.8rem 0 0;">Your bag</h1>
+      <p style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; color: var(--ink-soft); margin: 0.6rem 0 0;">{{ countLabel }}</p>
+
+      <!-- Empty -->
+      <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align: center; padding: clamp(3rem, 2rem + 4vw, 5rem) 1rem; border: 1px dashed var(--line); border-radius: var(--r-xl); margin-top: 2rem;">
+          <div style="width: 64px; height: 64px; border-radius: var(--r-pill); background: var(--paper-2); display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h13l-1.2 9.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          </div>
+          <h2 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--burgundy); font-weight: 800; margin: 1.1rem 0 0;">Your bag is empty</h2>
+          <p style="color: var(--ink-soft); font-size: 1rem; margin: 0.5rem 0 0;">Good coffee is a click away. Start with the beans or explore the range.</p>
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="coffee.html" arrow="{{ true }}" hint-size="150px,46px">Shop coffee</x-import>
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" href="beverages.html" hint-size="150px,46px">All beverages</x-import>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Filled -->
+      <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(1.6rem, 1rem + 2vw, 2.6rem); margin-top: 2rem; align-items: start;">
+
+          <!-- Line items -->
+          <div style="display: flex; flex-direction: column; gap: 1rem; grid-column: 1 / -1;">
+            <div style="display: flex; flex-direction: column;">
+              <sc-for list="{{ lines }}" as="l" hint-placeholder-count="0">
+                <article style="display: grid; grid-template-columns: 68px 1fr auto; gap: 1.1rem; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid var(--line);">
+                  <div style="width: 68px; height: 68px; border-radius: var(--r-lg); border: 1px solid var(--line); background: color-mix(in oklch, var(--terracotta) 8%, var(--paper-3)); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--terracotta);">{{ l.initial }}</span>
+                  </div>
+                  <div style="min-width: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: var(--burgundy); font-weight: 700; line-height: 1.15; margin: 0;">
+                      <a href="{{ l.href }}" style="color: inherit;">{{ l.name }}</a>
+                    </h3>
+                    <sc-if value="{{ l.variant }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.66rem; color: var(--ink-soft);">{{ l.variant }}</span>
+                    </sc-if>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                      <div style="display: flex; align-items: center; border: 1px solid var(--line); border-radius: var(--r-pill); overflow: hidden;">
+                        <button type="button" onClick="{{ l.dec }}" aria-label="Decrease" style="width: 34px; height: 34px; border: none; background: transparent; color: var(--ink); font-size: 1.1rem; cursor: pointer;">−</button>
+                        <span style="min-width: 28px; text-align: center; font-weight: 600; font-size: 0.95rem;">{{ l.qty }}</span>
+                        <button type="button" onClick="{{ l.inc }}" aria-label="Increase" style="width: 34px; height: 34px; border: none; background: transparent; color: var(--ink); font-size: 1.1rem; cursor: pointer;">+</button>
+                      </div>
+                      <button type="button" onClick="{{ l.remove }}" style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.66rem; color: var(--ink-soft); background: transparent; border: none; cursor: pointer;">Remove</button>
+                    </div>
+                  </div>
+                  <div style="text-align: right; display: flex; flex-direction: column; gap: 0.2rem;">
+                    <span style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--ink);">{{ l.lineTotal }}</span>
+                    <sc-if value="{{ l.showUnit }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-size: 0.75rem; color: var(--ink-soft);">{{ l.unitLabel }}</span>
+                    </sc-if>
+                  </div>
+                </article>
+              </sc-for>
+            </div>
+            <a href="beverages.html" style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem;">← Continue shopping</a>
+          </div>
+
+          <!-- Summary -->
+          <aside style="grid-column: 1 / -1; max-width: 420px; margin-left: auto; width: 100%; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); box-shadow: var(--shadow-sm); padding: 1.6rem 1.8rem; position: sticky; top: 92px;">
+            <h2 style="font-family: var(--font-display); font-size: 1.3rem; color: var(--burgundy); font-weight: 800; margin: 0 0 1.1rem;">Order summary</h2>
+            <div style="display: flex; justify-content: space-between; font-size: 0.98rem; color: var(--ink); padding: 0.4rem 0;">
+              <span style="color: var(--ink-soft);">Subtotal</span><span style="font-weight: 600;">{{ subtotalLabel }}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.98rem; color: var(--ink); padding: 0.4rem 0;">
+              <span style="color: var(--ink-soft);">Shipping</span><span style="font-weight: 600;">{{ shippingLabel }}</span>
+            </div>
+            <sc-if value="{{ showFreeHint }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size: 0.8rem; color: var(--terracotta-deep); margin: 0.4rem 0 0; line-height: 1.4;">{{ freeHint }}</p>
+            </sc-if>
+            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; color: var(--ink); padding: 0.9rem 0 0; margin-top: 0.6rem; border-top: 1px solid var(--line);">
+              <span style="font-family: var(--font-display); font-weight: 800; color: var(--burgundy);">Total</span>
+              <span style="font-family: var(--font-display); font-weight: 800; color: var(--burgundy);">{{ totalLabel }}</span>
+            </div>
+            <div style="margin-top: 1.3rem;">
+              <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="#" arrow="{{ true }}" hint-size="100%,50px">Checkout</x-import>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; color: var(--ink-soft);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <span style="font-size: 0.76rem;">Secure checkout · free returns within 30 days</span>
+            </div>
+          </aside>
+        </div>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0, items: [] };
+  componentDidMount() {
+    this._read();
+    this._sync = (e) => { if (e.key === 'frescopa_cart_items' || e.key === 'frescopa_cart') this._read(); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  _read = () => {
+    let items = [];
+    try { items = JSON.parse(localStorage.getItem('frescopa_cart_items') || '[]'); } catch (e) {}
+    if (!Array.isArray(items)) items = [];
+    this.setState({ items, cart: items.reduce((n, i) => n + (i.qty || 0), 0) });
+  };
+  _save = (items) => {
+    const count = items.reduce((n, i) => n + (i.qty || 0), 0);
+    try {
+      localStorage.setItem('frescopa_cart_items', JSON.stringify(items));
+      localStorage.setItem('frescopa_cart', String(count));
+    } catch (e) {}
+    this.setState({ items, cart: count });
+  };
+  changeQty = (key, delta) => {
+    let items = this.state.items.map((i) => i.key === key ? { ...i, qty: (i.qty || 1) + delta } : i).filter((i) => (i.qty || 0) > 0);
+    this._save(items);
+  };
+  removeItem = (key) => this._save(this.state.items.filter((i) => i.key !== key));
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+    const money = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const items = this.state.items;
+    const isEmpty = items.length === 0;
+
+    const lines = items.map((i) => {
+      const qty = i.qty || 1;
+      return {
+        key: i.key, name: i.name, variant: i.variant || '', href: i.href || '#', qty,
+        initial: (i.name || '?').replace(/^The /, '').charAt(0).toUpperCase(),
+        lineTotal: money((i.price || 0) * qty),
+        showUnit: qty > 1, unitLabel: money(i.price || 0) + ' each',
+        inc: () => this.changeQty(i.key, 1),
+        dec: () => this.changeQty(i.key, -1),
+        remove: () => this.removeItem(i.key),
+      };
+    });
+
+    const subtotal = items.reduce((s, i) => s + (i.price || 0) * (i.qty || 1), 0);
+    const FREE = 35;
+    const shipping = subtotal >= FREE || subtotal === 0 ? 0 : 5;
+    const total = subtotal + shipping;
+    const showFreeHint = subtotal > 0 && subtotal < FREE;
+    const freeHint = showFreeHint ? 'Add ' + money(FREE - subtotal) + ' more for free shipping.' : '';
+    const totalQty = items.reduce((n, i) => n + (i.qty || 0), 0);
+
+    return {
+      nav, cart: this.state.cart, isEmpty, hasItems: !isEmpty, lines,
+      countLabel: isEmpty ? 'Nothing here yet' : totalQty + (totalQty === 1 ? ' item' : ' items'),
+      subtotalLabel: money(subtotal),
+      shippingLabel: shipping === 0 ? 'Free' : money(shipping),
+      showFreeHint, freeHint, totalLabel: money(total),
+      goAccount: () => { window.location.href = 'myatelier.html'; },
+      goCart: () => { window.location.href = 'cart.html'; },
+    };
+  }
+}
+</script>
+</body>
+</html>

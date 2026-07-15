@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="beverages.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <!-- Intro -->
+  <section style="background: var(--paper-2); padding: calc(72px + clamp(2.5rem, 1.5rem + 3vw, 4.5rem)) 0 clamp(2rem, 1.5rem + 2vw, 3rem);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Beverages</span>
+      <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem); color: var(--burgundy); margin: 0.6rem 0 0; max-width: 18ch;">Three ways to fill a cup.</h1>
+      <p style="color: var(--ink-soft); font-size: 1.125rem; margin-top: 1rem; line-height: 1.6; max-width: 56ch;">Coffee, tea, and cold-pressed juice — each sourced carefully, made in small batches, and built for a particular kind of morning. Start with what you're pouring today.</p>
+    </div>
+  </section>
+
+  <!-- Coffee -->
+  <section style="background: var(--paper); padding: clamp(2.8rem, 2rem + 3vw, 4.5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.8rem, 1rem + 3vw, 3.8rem); align-items: center;">
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4; background: var(--paper-3);">
+          <img src="assets/images/espresso-pour.jpg" alt="Coffee" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Coffee</span>
+          <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.7rem); color: var(--burgundy); line-height: 1.08; margin: 0;">Roasted for your ritual</h2>
+          <p style="color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; margin: 0;">House blends built for consistency, traceable single origins for the days you want to taste a place, and premium instant for when you're in a hurry. Ground, whole bean, or pods.</p>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; color: var(--ink-soft);">Worth starting with</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Morning Blend</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Single Origin Ethiopian</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Espresso Blend</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="coffee.html" arrow="{{ true }}" hint-size="160px,46px">Shop all coffee</x-import>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; color: var(--ink-soft);">From $10 · 10 blends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tea -->
+  <section style="background: var(--paper-2); padding: clamp(2.8rem, 2rem + 3vw, 4.5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.8rem, 1rem + 3vw, 3.8rem); align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 0.9rem; order: 1;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Tea</span>
+          <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.7rem); color: var(--burgundy); line-height: 1.08; margin: 0;">A quieter kind of cup</h2>
+          <p style="color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; margin: 0;">Eight blends across black, green and herbal, plus a small reserve of rare leaf. Loose or in bags, in three sizes — chosen for the slow afternoon hour.</p>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; color: var(--ink-soft);">Worth starting with</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">English Breakfast</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Green Sencha</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Darjeeling First Flush</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="#" arrow="{{ true }}" hint-size="160px,46px">Shop all tea</x-import>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; color: var(--ink-soft);">From $9 · 10 blends</span>
+          </div>
+        </div>
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4; background: var(--paper-3); order: 2;">
+          <img src="assets/images/tea-moment.jpg" alt="Tea" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Juice -->
+  <section style="background: var(--paper); padding: clamp(2.8rem, 2rem + 3vw, 4.5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.8rem, 1rem + 3vw, 3.8rem); align-items: center;">
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4; background: var(--paper-3);">
+          <img src="assets/images/citrus-juice.jpg" alt="Cold-press juice" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Cold-press juice</span>
+          <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.7rem); color: var(--burgundy); line-height: 1.08; margin: 0;">Bottled bright</h2>
+          <p style="color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; margin: 0;">Cold-pressed singles and blends, plus concentrates to mix your own. No added sugar, nothing from concentrate — just fruit and veg, pressed slow and kept cold.</p>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.4rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.66rem; color: var(--ink-soft);">Worth starting with</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Orange</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Green Revival</span>
+              <span style="font-size: 0.9rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.42rem 0.9rem;">Beetroot &amp; Berry</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="#" arrow="{{ true }}" hint-size="160px,46px">Shop all juice</x-import>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; color: var(--ink-soft);">From $5.50 · 25 pressings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing: taste them all -->
+  <section style="position: relative; background: var(--charcoal); overflow: hidden; padding: clamp(3.5rem, 2.5rem + 4vw, 6rem) 0;">
+    <div style="position: absolute; top: -20%; right: -10%; width: 55%; height: 140%; background: radial-gradient(circle, color-mix(in oklch, var(--amber) 24%, transparent) 0%, transparent 62%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter); text-align: center;">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.74rem; color: var(--amber);">Can't decide?</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.9rem, 1.4rem + 2.4vw, 3rem); color: var(--cream); margin: 1rem auto 0; max-width: 20ch; line-height: 1.06;">Taste the whole range at a café.</h2>
+      <p style="color: rgba(255,248,240,0.82); font-size: 1.08rem; line-height: 1.6; margin: 1rem auto 0; max-width: 44ch;">Sit at the bar and work through coffee, tea and juice with our team. It's the fastest way to find your everyday cup.</p>
+      <div style="margin-top: 1.7rem;">
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="cream" href="cafe.html" arrow="{{ true }}" hint-size="160px,48px">Find a café</x-import>
+      </div>
+    </div>
+  </section>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0 };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    this.setState({ cart: c });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+
+    return { nav, cart: this.state.cart, goAccount: () => { window.location.href = 'myatelier.html'; } };
+  }
+}
+</script>
+</body>
+</html>

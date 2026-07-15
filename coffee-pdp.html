@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper); min-height: 100vh;">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="coffee.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" on-cart="{{ goCart }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <section style="padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.5rem)) 0 var(--section-y);">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+
+      <nav style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--ink-soft); display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+        <a href="index.html" style="color: var(--ink-soft);">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="coffee.html" style="color: var(--ink-soft);">Coffee</a>
+        <span aria-hidden="true">/</span>
+        <span style="color: var(--ink);">{{ p.name }}</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(2rem, 1rem + 4vw, 4rem); margin-top: 1.6rem; align-items: start;">
+
+        <!-- Image -->
+        <div style="position: sticky; top: 92px; border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); background: var(--paper-3); aspect-ratio: 4 / 5;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" shape="rect" placeholder="{{ p.name }}" hint-size="100%,100%"></x-import>
+        </div>
+
+        <!-- Detail -->
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">{{ p.eyebrow }}</span>
+          <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); color: var(--burgundy); margin: 0; line-height: 1.08;">{{ p.name }}</h1>
+          <p style="color: var(--ink); font-size: 1.15rem; line-height: 1.6; margin: 0;">{{ p.short }}</p>
+
+          <div style="font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--ink); margin-top: 0.3rem;">{{ priceLabel }}</div>
+
+          <!-- Format selector -->
+          <div style="margin-top: 0.4rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft);">Format</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem;">
+              <sc-for list="{{ formatOptions }}" as="f" hint-placeholder-count="3">
+                <button type="button" onClick="{{ f.onClick }}" style="{{ f.style }}">{{ f.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- Size selector -->
+          <div style="margin-top: 0.4rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft);">Size</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem;">
+              <sc-for list="{{ sizeOptions }}" as="s" hint-placeholder-count="3">
+                <button type="button" onClick="{{ s.onClick }}" style="{{ s.style }}">
+                  <span>{{ s.unit }}</span>
+                  <span style="opacity: 0.7; margin-left: 0.5rem;">{{ s.priceLabel }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- Add -->
+          <div style="display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; margin-top: 1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" on-click="{{ addToCart }}" arrow="{{ true }}" hint-size="180px,48px">{{ addLabel }}</x-import>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; color: var(--ink-soft);">{{ selectionLabel }}</span>
+          </div>
+
+          <!-- Long description -->
+          <div style="margin-top: 1.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line);">
+            <p style="color: var(--ink-soft); font-size: 1.02rem; line-height: 1.7; white-space: pre-line; margin: 0;">{{ p.long }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related -->
+      <sc-if value="{{ hasRelated }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: clamp(3rem, 2rem + 3vw, 5rem);">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">More in {{ p.eyebrow }}</span>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.4rem; margin-top: 1.4rem;">
+            <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+              <a href="{{ r.href }}" style="display: flex; flex-direction: column; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; color: inherit;">
+                <div style="aspect-ratio: 4 / 3; background: var(--paper-3);">
+                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ r.slotId }}" shape="rect" placeholder="{{ r.name }}" hint-size="100%,100%"></x-import>
+                </div>
+                <div style="padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                  <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--burgundy); font-weight: 700; margin: 0;">{{ r.name }}</h3>
+                  <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">from {{ r.fromLabel }}</span>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0, id: null, products: null, format: null, unit: null, added: false };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    const id = (window.location.hash || '').replace('#', '') || null;
+    this.setState({ cart: c, id });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+    this._hash = () => this.setState({ id: (window.location.hash || '').replace('#', '') || null, format: null, unit: null, added: false });
+    window.addEventListener('hashchange', this._hash);
+    import('./coffee-data.js').then((m) => this.setState({ products: m.COFFEE_PRODUCTS }));
+  }
+  componentWillUnmount() {
+    if (this._sync) window.removeEventListener('storage', this._sync);
+    if (this._hash) window.removeEventListener('hashchange', this._hash);
+    if (this._t) clearTimeout(this._t);
+  }
+  _pushItem = (item) => {
+    let items = [];
+    try { items = JSON.parse(localStorage.getItem('frescopa_cart_items') || '[]'); } catch (e) {}
+    if (!Array.isArray(items)) items = [];
+    const ex = items.find((i) => i.key === item.key);
+    if (ex) ex.qty += 1; else items.push({ ...item, qty: 1 });
+    const count = items.reduce((n, i) => n + (i.qty || 0), 0);
+    try {
+      localStorage.setItem('frescopa_cart_items', JSON.stringify(items));
+      localStorage.setItem('frescopa_cart', String(count));
+    } catch (e) {}
+    this.setState({ cart: count });
+  };
+  addLine = (item) => {
+    this._pushItem(item);
+    this.setState({ added: true });
+    if (this._t) clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ added: false }), 1800);
+  };
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+    const goAccount = () => { window.location.href = 'myatelier.html'; };
+    const goCart = () => { window.location.href = 'cart.html'; };
+    const products = this.state.products;
+    const base = { nav, cart: this.state.cart, goAccount, goCart };
+    if (!products) return { ...base };
+
+    const raw = products.find((x) => x.id === this.state.id) || products[0];
+    const groupEyebrow = { 'Blends & Roasts': 'Blends & roasts', 'Single Origin': 'Single origin', 'Instant': 'Instant' };
+    const tagMap = { 'Whole Bean': 'Whole bean', 'Ground': 'Ground', 'Pods': 'Pods', 'Raw / Green Bean': 'Raw / green bean', 'Regular': 'Regular', 'Decaf': 'Decaf' };
+    const dispName = raw.name.replace('Fréscopa ', '').replace('Single Origin ', '');
+
+    const formatNames = raw.formatNames || [];
+    const format = (this.state.format && raw.formats[this.state.format]) ? this.state.format : (raw.formats['Ground'] ? 'Ground' : formatNames[0]);
+    const sizes = raw.formats[format] || [];
+    const unit = (this.state.unit && sizes.find((s) => s.unit === this.state.unit)) ? this.state.unit : (sizes[0] && sizes[0].unit);
+    const current = sizes.find((s) => s.unit === unit) || sizes[0] || { price: raw.from };
+
+    const btnBase = { fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: 600, padding: '0.55rem 1.15rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.2s var(--ease-quint)' };
+    const sel = { ...btnBase, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' };
+    const unsel = { ...btnBase, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' };
+
+    const formatOptions = formatNames.map((f) => ({
+      label: tagMap[f] || f,
+      onClick: () => this.setState({ format: f, unit: null, added: false }),
+      style: f === format ? sel : unsel,
+    }));
+    const sizeOptions = sizes.map((s) => ({
+      unit: s.unit,
+      priceLabel: '$' + s.price,
+      onClick: () => this.setState({ unit: s.unit, added: false }),
+      style: s.unit === unit ? sel : unsel,
+    }));
+
+    const p = {
+      slotId: 'coffee-' + raw.id, name: dispName, eyebrow: groupEyebrow[raw.group] || raw.group,
+      short: raw.short, long: raw.long,
+    };
+    const lineItem = {
+      key: 'coffee:' + raw.id + ':' + format + ':' + unit,
+      name: dispName, variant: (tagMap[format] || format) + ' · ' + unit,
+      price: current.price, href: 'coffee-pdp.html#' + raw.id,
+    };
+    const related = products.filter((x) => x.group === raw.group && x.id !== raw.id).slice(0, 3).map((x) => ({
+      slotId: 'coffee-' + x.id, name: x.name.replace('Fréscopa ', '').replace('Single Origin ', ''),
+      fromLabel: '$' + x.from, href: 'coffee-pdp.html#' + x.id,
+    }));
+
+    return {
+      ...base, p, formatOptions, sizeOptions, related, hasRelated: related.length > 0,
+      priceLabel: '$' + current.price,
+      selectionLabel: (tagMap[format] || format) + ' · ' + unit,
+      addLabel: this.state.added ? 'Added to bag ✓' : 'Add to bag',
+      addToCart: () => this.addLine(lineItem),
+    };
+  }
+}
+</script>
+</body>
+</html>

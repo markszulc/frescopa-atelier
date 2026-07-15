@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a.inline { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--terracotta) 40%, transparent); }
+  a.inline:hover { color: var(--terracotta-deep); }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="blog.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <!-- Header -->
+  <article>
+    <header style="background: var(--paper-2); padding: calc(72px + clamp(2.5rem, 1.5rem + 3vw, 4.5rem)) 0 clamp(2rem, 1.5rem + 2vw, 3rem);">
+      <div style="max-width: 760px; margin-inline: auto; padding-inline: var(--gutter);">
+        <nav style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--ink-soft); display: flex; gap: 0.5rem; align-items: center;">
+          <a href="blog.html" style="color: var(--ink-soft);">The Journal</a>
+          <span aria-hidden="true">/</span>
+          <span style="color: var(--terracotta);">The Atelier</span>
+        </nav>
+        <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.2rem, 1.5rem + 3.2vw, 3.8rem); color: var(--burgundy); margin: 1rem 0 0; line-height: 1.04;">How the Atelier learns your taste</h1>
+        <p style="font-family: var(--font-display); font-weight: 500; color: var(--ink); font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); line-height: 1.5; margin: 1.1rem 0 0;">It doesn't guess, and it doesn't hand you a questionnaire. Here's what actually happens in the first two weeks on your counter — and why the cup keeps getting better.</p>
+        <div style="display: flex; align-items: center; gap: 0.9rem; margin-top: 1.8rem;">
+          <div style="width: 46px; height: 46px; border-radius: var(--r-pill); background: var(--paper-3); border: 1px solid var(--line); overflow: hidden; flex-shrink: 0;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-author" shape="circle" placeholder="ME" hint-size="46px,46px"></x-import>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-weight: 600; color: var(--ink); font-size: 0.98rem;">Maya Ellison</span>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Head of Coffee · June 2026 · 6 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero image -->
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter); margin-top: clamp(1.5rem, 1rem + 2vw, 2.5rem);">
+      <figure style="margin: 0;">
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 9;">
+          <img src="assets/images/hero-machine.jpg" alt="The Atelier machine on a kitchen counter" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <figcaption style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.64rem; color: var(--ink-soft); margin-top: 0.7rem; text-align: center;">The Atelier, two weeks in — quietly learning.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Body -->
+    <div style="max-width: 680px; margin-inline: auto; padding: clamp(2.5rem, 2rem + 2vw, 3.5rem) var(--gutter) 0; font-size: 1.14rem; line-height: 1.75; color: var(--ink-soft);">
+
+      <p style="margin: 0;"><span style="float: left; font-family: var(--font-display); font-weight: 800; color: var(--burgundy); font-size: 3.6rem; line-height: 0.82; padding: 0.35rem 0.6rem 0 0;">T</span>here's a moment, usually around day ten, when people email us to say the coffee "just got better" — as if the machine had a good night's sleep. It didn't. It was paying attention. The Atelier spends its first fortnight doing something closer to listening than calculating, and once you know what it's listening for, the whole thing feels a lot less like magic and a lot more like craft.</p>
+
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; color: var(--burgundy); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; margin: 2.4rem 0 0.8rem;">It starts with the senses</h2>
+      <p style="margin: 0;">Every shot the Atelier pulls is measured — not just poured. Flow rate, temperature at the group head, the pressure curve, how quickly the puck resists. On its own, none of that means much. But held against the thousands of shots it already knows, each one becomes a small data point about the beans in your hopper and the water in your pipes.</p>
+      <p style="margin: 1.1rem 0 0;">This is why it never asks you to "dial in." It's reading conditions you'd otherwise have to guess at, and adjusting before the next cup rather than after a ruined one.</p>
+
+      <figure style="margin: 2.2rem 0 0;">
+        <div style="border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 3 / 2;">
+          <img src="assets/images/espresso-pour.jpg" alt="Espresso extracting into a glass" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <figcaption style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.64rem; color: var(--ink-soft); margin-top: 0.7rem;">A good extraction has a shape. The Atelier watches for it every time.</figcaption>
+      </figure>
+
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; color: var(--burgundy); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; margin: 2.4rem 0 0.8rem;">Then it builds a taste profile</h2>
+      <p style="margin: 0;">Every time you tweak — a little stronger, a touch less bitter, more milk — the Atelier folds that into what we call your Flavour DNA. It isn't a single setting; it's a shape across body, acidity, sweetness, and strength that quietly firms up over your first week.</p>
+
+      <blockquote style="margin: 2.2rem 0; padding: 0 0 0 1.4rem; border-left: 3px solid var(--amber); font-family: var(--font-display); font-weight: 500; color: var(--burgundy); font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); line-height: 1.3;">"The best machine isn't the one with the most buttons. It's the one you stop needing to think about."</blockquote>
+
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; color: var(--burgundy); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; margin: 2.4rem 0 0.8rem;">And it reads the room</h2>
+      <p style="margin: 0;">With your permission, the Atelier looks at the day ahead — an early start, a packed calendar, a slow Sunday — and paces itself accordingly. A stronger first cup before a 7am flight; a gentler decaf as the evening winds down. You can turn every bit of this off; most people leave it on within a week.</p>
+
+      <!-- Callout -->
+      <aside style="background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem 1.8rem; margin: 2.4rem 0;">
+        <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">The short version</span>
+        <ol style="margin: 0.9rem 0 0; padding-left: 1.2rem; color: var(--ink); font-size: 1.02rem; line-height: 1.6; display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><strong style="color: var(--burgundy);">Senses</strong> — it measures every shot, not just pours it.</li>
+          <li><strong style="color: var(--burgundy);">Builds a profile</strong> — your tweaks become a Flavour DNA.</li>
+          <li><strong style="color: var(--burgundy);">Reads context</strong> — calendar and time of day shape the cup.</li>
+          <li><strong style="color: var(--burgundy);">Acts</strong> — it adjusts before the next cup, not after.</li>
+        </ol>
+      </aside>
+
+      <p style="margin: 0;">None of this replaces the pleasure of making coffee by hand — plenty of us still do. But on the mornings you can't, it's a quiet reassurance that the cup will be right anyway. That's the whole idea: less thinking, more drinking well.</p>
+
+      <p style="margin: 1.4rem 0 0;">Curious to feel it in person? <a class="inline" href="cafe.html#tour">Book an Atelier tour</a> at a showroom café, or <a class="inline" href="atelier.html">read the full spec</a>.</p>
+
+      <!-- Share -->
+      <div style="display: flex; align-items: center; gap: 0.9rem; margin: 2.6rem 0; padding: 1.4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft);">Share</span>
+        <div style="display: flex; gap: 0.6rem;">
+          <a href="#" aria-label="Share on X" style="width: 40px; height: 40px; border-radius: var(--r-pill); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--ink);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="#" aria-label="Share by email" style="width: 40px; height: 40px; border-radius: var(--r-pill); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--ink);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="#" aria-label="Copy link" style="width: 40px; height: 40px; border-radius: var(--r-pill); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--ink);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Author bio -->
+      <div style="display: flex; gap: 1.1rem; align-items: flex-start; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.4rem 1.6rem;">
+        <div style="width: 60px; height: 60px; border-radius: var(--r-pill); background: var(--paper-3); border: 1px solid var(--line); overflow: hidden; flex-shrink: 0;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="article-author-bio" shape="circle" placeholder="ME" hint-size="60px,60px"></x-import>
+        </div>
+        <div>
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--terracotta);">About the author</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: var(--burgundy); font-weight: 700; margin: 0.3rem 0 0;">Maya Ellison</h3>
+          <p style="color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; margin: 0.4rem 0 0;">Maya leads coffee at Fréscopa — sourcing, roasting, and the taste standard behind every machine. She still pulls her morning shot by hand.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related -->
+    <section style="max-width: var(--content); margin-inline: auto; padding: clamp(3rem, 2rem + 3vw, 5rem) var(--gutter) var(--section-y);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Keep reading</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem); color: var(--burgundy); margin: 0.5rem 0 0;">More from the Journal</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.8rem; margin-top: 2rem;">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+          <a href="{{ r.href }}" style="display: flex; flex-direction: column; gap: 0.8rem; color: inherit;">
+            <div style="aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--paper-3);">
+              <sc-if value="{{ r.image }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ r.image }}" alt="{{ r.title }}" style="width: 100%; height: 100%; object-fit: cover;" />
+              </sc-if>
+              <sc-if value="{{ r.slot }}" hint-placeholder-val="{{ false }}">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ r.slotId }}" shape="rect" placeholder="{{ r.title }}" hint-size="100%,100%"></x-import>
+              </sc-if>
+            </div>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.64rem; color: var(--terracotta);">{{ r.cat }}</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--burgundy); font-weight: 700; line-height: 1.16; margin: 0;">{{ r.title }}</h3>
+          </a>
+        </sc-for>
+      </div>
+      <div style="margin-top: 2.4rem;">
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" href="blog.html" hint-size="160px,44px">Back to the Journal</x-import>
+      </div>
+    </section>
+  </article>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cart: 0 };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    this.setState({ cart: c });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+    const related = [
+      { id: 'slow-pour', cat: 'Brewing', title: 'In praise of the slow pour', image: 'assets/images/espresso-pour.jpg', href: 'blog.html' },
+      { id: 'grounds', cat: 'Sustainability', title: 'Nothing wasted, right down to the grounds', image: 'assets/images/sustainability.jpg', href: 'blog.html' },
+      { id: 'single-origin', cat: 'Origins', title: 'Single origin, explained', slot: true, slotId: 'blog-single-origin-rel', href: 'blog.html' },
+    ];
+    return { nav, cart: this.state.cart, related, goAccount: () => { window.location.href = 'myatelier.html'; } };
+  }
+}
+</script>
+</body>
+</html>

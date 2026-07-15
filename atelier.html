@@ -93,7 +93,7 @@
 </template>
 <div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
 
-  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="machines.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="atelier.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
 
   <!-- ===== Product ===== -->
   <section style="background: var(--paper); padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.6rem)) 0 var(--section-y);">
@@ -495,10 +495,11 @@ class Component extends DCLogic {
   };
   renderVals() {
     const nav = [
-      { label: 'The Atelier', href: 'atelier.html' },
+      { label: 'The Atelier', href: 'landing.html' },
       { label: 'Machines', href: 'machines.html' },
-      { label: 'Coffee & tea', href: 'index.html#feed' },
-      { label: 'Café', href: 'index.html#cafe' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
     ];
     const active = this.state.activeImg;
     const thumbBase = { padding: 0, border: 'none', borderRadius: 'var(--r-md)', overflow: 'hidden', aspectRatio: '1 / 1', cursor: 'pointer', background: 'var(--paper-3)', transition: 'box-shadow 0.2s var(--ease-quint)' };

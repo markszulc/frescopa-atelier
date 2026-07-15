@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/typography.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
+<link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
+<script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { color: var(--terracotta-deep); }
+</style>
+</helmet>
+<div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="cafe.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" hint-size="100%,72px" data-vt="site-header"></x-import>
+
+  <!-- ===== Hero ===== -->
+  <section style="position: relative; min-height: min(78vh, 720px); display: flex; align-items: flex-end; overflow: hidden;">
+    <img src="assets/images/cafe-interior.jpg" alt="Inside a Fréscopa café" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30,18,15,0.82) 0%, rgba(30,18,15,0.5) 45%, rgba(30,18,15,0.15) 100%);"></div>
+    <div style="position: relative; max-width: var(--content); margin-inline: auto; padding: 0 var(--gutter) clamp(3rem, 2rem + 4vw, 5.5rem); width: 100%; color: var(--cream);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; color: var(--amber);">The café &amp; showroom</span>
+      <h1 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.4rem, 1.6rem + 4vw, 4.4rem); color: var(--cream); margin: 1rem 0 0; line-height: 1.02; max-width: 16ch;">Come taste the whole of Fréscopa.</h1>
+      <p style="color: rgba(255,248,240,0.9); font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem); margin: 1.2rem 0 0; line-height: 1.6; max-width: 46ch;">Part coffee bar, part showroom, part gathering place. Sit with a cup, get hands-on with the machines, and stay for a class — no purchase, no pressure.</p>
+      <div style="display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.8rem;">
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="cream" href="#locations" arrow="{{ true }}" hint-size="180px,48px">Find your nearest café</x-import>
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" href="#experience" hint-size="150px,48px">See what's inside</x-import>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why come in ===== -->
+  <section style="background: var(--paper); padding: clamp(3rem, 2rem + 3vw, 5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Why come in</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); color: var(--burgundy); margin: 0.5rem 0 0; max-width: 20ch;">Reasons to make the trip.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.6rem; margin-top: 2.6rem;">
+
+        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h2a2.5 2.5 0 0 1 0 5h-2"/><path d="M7 4c0 .8-.5 1.2-.5 2M11 4c0 .8-.5 1.2-.5 2"/></svg>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--burgundy); font-weight: 700; margin: 0;">Taste before you commit</h3>
+          <p style="color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; margin: 0;">Flight through the coffee, tea and cold-press range at the bar. Find the cup you'll want at home.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M14 8h3M14 11h3M7 15h10"/></svg>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--burgundy); font-weight: 700; margin: 0;">Meet the machines</h3>
+          <p style="color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; margin: 0;">Pull a shot on the Atelier line yourself. Feel the difference before it lands on your counter.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4c-3 2-6 2-7 2 0 6 2.5 10 7 12 4.5-2 7-6 7-12-1 0-4 0-7-2Z"/><path d="M9 11l2 2 4-4"/></svg>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--burgundy); font-weight: 700; margin: 0;">Learn from the team</h3>
+          <p style="color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; margin: 0;">Brewing classes, latte-art labs and cuppings led by people who do it every day.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M15 19a4.5 4.5 0 0 1 6-3.9"/></svg>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--burgundy); font-weight: 700; margin: 0;">Somewhere to linger</h3>
+          <p style="color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; margin: 0;">A warm room to meet, work, or read the morning away. Come for the coffee, stay for the quiet.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== The experience ===== -->
+  <section id="experience" style="background: var(--paper-2); padding: clamp(3rem, 2rem + 3vw, 5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">The experience</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); color: var(--burgundy); margin: 0.5rem 0 0; max-width: 22ch;">Three rooms, one long morning.</h2>
+
+      <!-- Taste bar -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); align-items: center; margin-top: 3rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">01 · The taste bar</span>
+          <h3 style="font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); color: var(--burgundy); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Every drink we make, poured to order.</h3>
+          <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.65; margin: 0;">Sit at the bar and work through the range — espresso and slow-pour coffee, loose-leaf tea, and cold-pressed juice. Our team talks you through each one and builds a tasting flight around what you like. It's the fastest way to find your everyday cup.</p>
+          <div style="margin-top: 0.4rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="coffee.html" size="md" arrow="{{ true }}" hint-size="150px,24px">Browse the coffee range</x-import>
+          </div>
+        </div>
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4;">
+          <img src="assets/images/espresso-pour.jpg" alt="Espresso poured at the bar" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+
+      <!-- Showroom -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); align-items: center; margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);">
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4; order: 2;">
+          <img src="assets/images/hero-machine.jpg" alt="The Atelier machine on display" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.9rem; order: 1;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">02 · The showroom</span>
+          <h3 style="font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); color: var(--burgundy); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Get your hands on the whole line.</h3>
+          <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.65; margin: 0;">The full Atelier range is set up and running. Pull your own shot, watch the machine learn a profile, and ask the questions a spec sheet can't answer. When you're ready, we'll help you pick the one that fits your kitchen — or arrange a home delivery.</p>
+          <div style="margin-top: 0.4rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="machines.html" size="md" arrow="{{ true }}" hint-size="150px,24px">Explore the machines</x-import>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); align-items: center; margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);">
+        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">03 · The table</span>
+          <h3 style="font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); color: var(--burgundy); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Learn something, meet someone.</h3>
+          <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.65; margin: 0;">Most evenings the long table hosts something — a brewing class, a latte-art lab, a cupping, or just a slow community morning. Classes are small and hands-on, and most are free with a drink. Check what's on below and save a seat.</p>
+          <div style="margin-top: 0.4rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#whatson" size="md" arrow="{{ true }}" hint-size="150px,24px">See what's on</x-import>
+          </div>
+        </div>
+        <div style="border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); aspect-ratio: 5 / 4;">
+          <img src="assets/images/tea-moment.jpg" alt="A shared moment over tea" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== What's on ===== -->
+  <section id="whatson" style="background: var(--paper); padding: clamp(3rem, 2rem + 3vw, 5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; justify-content: space-between;">
+        <div>
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">What's on</span>
+          <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); color: var(--burgundy); margin: 0.5rem 0 0;">This week at the table.</h2>
+        </div>
+        <p style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; color: var(--ink-soft);">Free with a drink unless noted</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.6rem; margin-top: 2.4rem;">
+        <sc-for list="{{ events }}" as="e" hint-placeholder-count="4">
+          <article style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--terracotta);">{{ e.day }}</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: var(--burgundy); font-weight: 700; line-height: 1.15; margin: 0;">{{ e.name }}</h3>
+            <p style="color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; margin: 0; flex: 1;">{{ e.blurb }}</p>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.6rem; padding-top: 0.8rem; border-top: 1px solid var(--line);">
+              <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.66rem; color: var(--ink-soft);">{{ e.time }}</span>
+              <span style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--ink);">{{ e.price }}</span>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Locations + wayfinder ===== -->
+  <section id="locations" style="background: var(--paper-2); padding: clamp(3rem, 2rem + 3vw, 5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Find us</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem); color: var(--burgundy); margin: 0.5rem 0 0; max-width: 16ch; line-height: 1.04;">There's a Fréscopa in your town.</h2>
+      <p style="color: var(--ink-soft); font-size: 1.1rem; line-height: 1.6; margin: 0.9rem 0 0; max-width: 54ch;">From flagship showrooms to the café on the corner, we're probably closer than you think. Every café pours the full range — showrooms and workshop tables vary by location.</p>
+
+      <!-- Stats -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.6rem; margin-top: 2.4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.8rem 0;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+            <span style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 1.4rem + 2vw, 2.9rem); color: var(--burgundy); line-height: 1;">{{ s.value }}</span>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft);">{{ s.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- Flagship -->
+      <article style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); margin-top: 2.4rem;">
+        <div style="position: relative; min-height: 320px; background: var(--paper-3);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cafe-flagship" shape="rect" placeholder="Fréscopa SoHo flagship" hint-size="100%,100%"></x-import>
+          <div style="position: absolute; top: 1.1rem; left: 1.1rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Badge" variant="burgundy" hint-size="60px,26px">Flagship</x-import>
+          </div>
+        </div>
+        <div style="padding: clamp(1.6rem, 1rem + 2vw, 2.6rem); display: flex; flex-direction: column; gap: 0.6rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--terracotta);">New York · SoHo</span>
+          <h3 style="font-family: var(--font-display); font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); color: var(--burgundy); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 0;">The Fréscopa flagship</h3>
+          <p style="color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6; margin: 0.2rem 0 0;">Our largest room: a full taste bar, the complete showroom, and a dedicated workshop table upstairs. The best place to spend an unhurried afternoon in the Fréscopa world.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem;">
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.62rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.22rem 0.6rem;">Café</span>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.62rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.22rem 0.6rem;">Showroom</span>
+            <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.62rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.22rem 0.6rem;">Workshops</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem 1.4rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--ink); font-size: 0.95rem;">
+            <span>112 Greene Street, New York, NY</span>
+            <span style="color: var(--ink-soft);">Mon–Sun · 7am–8pm</span>
+          </div>
+          <div style="margin-top: 0.9rem;">
+            <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" href="#" arrow="{{ true }}" hint-size="150px,44px">Get directions</x-import>
+          </div>
+        </div>
+      </article>
+
+      <!-- Store finder -->
+      <div style="margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);">
+        <div style="position: relative;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); pointer-events: none;"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search by city, neighborhood or ZIP" style="width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1rem; color: var(--ink); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.95rem 1.2rem 0.95rem 2.9rem; outline: none;" />
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+          <sc-for list="{{ regionPills }}" as="pill" hint-placeholder-count="5">
+            <button type="button" onClick="{{ pill.onClick }}" style="{{ pill.style }}">{{ pill.label }}</button>
+          </sc-for>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(1.6rem, 1rem + 2vw, 2.6rem); margin-top: 1.6rem; align-items: start;">
+
+          <!-- Map -->
+          <div style="position: sticky; top: 92px; border-radius: var(--r-xl); overflow: hidden; border: 1px solid var(--line); background: var(--paper-3); aspect-ratio: 4 / 5; min-height: 420px;">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="cafe-map" shape="rect" placeholder="Map of Fréscopa cafés near you" hint-size="100%,100%"></x-import>
+          </div>
+
+          <!-- Results -->
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <p style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; color: var(--ink-soft); margin: 0;">{{ countLabel }}</p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.9rem; max-height: 640px; overflow-y: auto; padding-right: 0.5rem;">
+              <sc-for list="{{ locations }}" as="loc" hint-placeholder-count="6">
+                <article style="display: flex; gap: 1rem; align-items: flex-start; background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.1rem 1.3rem;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 0.15rem;"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10Z"/><circle cx="12" cy="11" r="2.2"/></svg>
+                  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                    <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline;">
+                      <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: var(--burgundy); font-weight: 700; line-height: 1.12; margin: 0;">{{ loc.name }}</h3>
+                      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.64rem; color: var(--terracotta); white-space: nowrap;">{{ loc.cityState }}</span>
+                    </div>
+                    <p style="color: var(--ink-soft); font-size: 0.9rem; line-height: 1.45; margin: 0;">{{ loc.address }}</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.1rem;">
+                      <sc-for list="{{ loc.tags }}" as="t" hint-placeholder-count="2">
+                        <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.6rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 0.2rem 0.55rem;">{{ t }}</span>
+                      </sc-for>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 0.5rem; padding-top: 0.6rem; border-top: 1px solid var(--line);">
+                      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.64rem; color: var(--ink-soft);">{{ loc.hours }}</span>
+                      <x-import component-from-global-scope="FrScopaDesignSystem_406815.TextLink" href="#" size="sm" arrow="{{ true }}" hint-size="100px,20px">Directions</x-import>
+                    </div>
+                  </div>
+                </article>
+              </sc-for>
+
+              <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+                <div style="text-align: center; padding: 2.5rem 1rem; border: 1px dashed var(--line); border-radius: var(--r-lg);">
+                  <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--burgundy); font-weight: 700; margin: 0;">No cafés match “{{ query }}”.</p>
+                  <p style="color: var(--ink-soft); font-size: 0.95rem; margin: 0.5rem 0 0;">Try a nearby city, or clear your search to see them all.</p>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Atelier Tour booking ===== -->
+  <section id="tour" style="background: var(--paper); padding: clamp(3rem, 2rem + 3vw, 5rem) 0;">
+    <div style="max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(2rem, 1rem + 4vw, 4rem); align-items: start;">
+
+        <!-- Copy -->
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--terracotta);">Book an Atelier tour</span>
+          <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem); color: var(--burgundy); margin: 0; line-height: 1.06; max-width: 18ch;">A guided hour with the machine that learns you.</h2>
+          <p style="color: var(--ink-soft); font-size: 1.05rem; line-height: 1.65; margin: 0.2rem 0 0; max-width: 46ch;">Book a free, 45-minute private tour at any showroom café. A specialist walks you through the Atelier line, dials a shot to your taste, and answers everything a spec sheet can't. No obligation to buy.</p>
+          <ul style="list-style: none; padding: 0; margin: 0.6rem 0 0; display: flex; flex-direction: column; gap: 0.7rem;">
+            <li style="display: flex; gap: 0.7rem; align-items: baseline; color: var(--ink); font-size: 1rem;"><span aria-hidden="true" style="color: var(--terracotta); font-weight: 700;">→</span><span>45 minutes, one-to-one with a specialist</span></li>
+            <li style="display: flex; gap: 0.7rem; align-items: baseline; color: var(--ink); font-size: 1rem;"><span aria-hidden="true" style="color: var(--terracotta); font-weight: 700;">→</span><span>Taste the full range, dialled to your palate</span></li>
+            <li style="display: flex; gap: 0.7rem; align-items: baseline; color: var(--ink); font-size: 1rem;"><span aria-hidden="true" style="color: var(--terracotta); font-weight: 700;">→</span><span>Free, and yours to book whenever suits</span></li>
+          </ul>
+        </div>
+
+        <!-- Form / confirmation -->
+        <div style="background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--r-xl); box-shadow: var(--shadow-md); padding: clamp(1.5rem, 1rem + 2vw, 2.4rem);">
+
+          <sc-if value="{{ tourOpen }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+              <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--burgundy); font-weight: 800; margin: 0;">Reserve your tour</h3>
+
+              <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Café</span>
+                <select value="{{ fld.location.v }}" onChange="{{ fld.location.on }}" style="{{ inputStyle }}">
+                  <option value="">Choose a showroom café</option>
+                  <sc-for list="{{ tourLocations }}" as="o" hint-placeholder-count="6">
+                    <option value="{{ o }}">{{ o }}</option>
+                  </sc-for>
+                </select>
+              </label>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;">
+                <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Date</span>
+                  <input type="date" value="{{ fld.date.v }}" onInput="{{ fld.date.on }}" style="{{ inputStyle }}" />
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Time</span>
+                  <select value="{{ fld.time.v }}" onChange="{{ fld.time.on }}" style="{{ inputStyle }}">
+                    <option value="">Pick a slot</option>
+                    <sc-for list="{{ timeSlots }}" as="t" hint-placeholder-count="6">
+                      <option value="{{ t }}">{{ t }}</option>
+                    </sc-for>
+                  </select>
+                </label>
+              </div>
+
+              <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Guests</span>
+                <select value="{{ fld.party.v }}" onChange="{{ fld.party.on }}" style="{{ inputStyle }}">
+                  <sc-for list="{{ partySizes }}" as="p" hint-placeholder-count="4">
+                    <option value="{{ p }}">{{ p }}</option>
+                  </sc-for>
+                </select>
+              </label>
+
+              <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Name</span>
+                <input type="text" value="{{ fld.name.v }}" onInput="{{ fld.name.on }}" placeholder="Your name" style="{{ inputStyle }}" />
+              </label>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;">
+                <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Email</span>
+                  <input type="email" value="{{ fld.email.v }}" onInput="{{ fld.email.on }}" placeholder="you@email.com" style="{{ inputStyle }}" />
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 0.4rem;">
+                  <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">Phone <span style="text-transform: none; letter-spacing: 0; color: var(--ink-soft); opacity: 0.7;">(optional)</span></span>
+                  <input type="tel" value="{{ fld.phone.v }}" onInput="{{ fld.phone.on }}" placeholder="(555) 000-0000" style="{{ inputStyle }}" />
+                </label>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--ink-soft);">I'd most like to see <span style="text-transform: none; letter-spacing: 0; opacity: 0.7;">(optional)</span></span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                  <sc-for list="{{ interestChips }}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+
+              <sc-if value="{{ tourError }}" hint-placeholder-val="{{ false }}">
+                <p style="color: var(--terracotta-deep); font-size: 0.9rem; margin: 0;">{{ tourError }}</p>
+              </sc-if>
+
+              <div style="margin-top: 0.3rem;">
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="terracotta" on-click="{{ submitTour }}" arrow="{{ true }}" hint-size="100%,48px">Request this tour</x-import>
+              </div>
+              <p style="color: var(--ink-soft); font-size: 0.8rem; line-height: 1.5; margin: 0;">We'll confirm by email within one business day. No payment needed to book.</p>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ tourDone }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 1rem; text-align: center; padding: 1rem 0.5rem;">
+              <div style="width: 56px; height: 56px; border-radius: var(--r-pill); background: color-mix(in oklch, var(--amber) 24%, transparent); display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>
+              </div>
+              <h3 style="font-family: var(--font-display); font-size: 1.7rem; color: var(--burgundy); font-weight: 800; margin: 0;">You're on the list, {{ confirmName }}.</h3>
+              <p style="color: var(--ink); font-size: 1.05rem; line-height: 1.6; margin: 0;">{{ confirmSummary }}</p>
+              <p style="color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; margin: 0;">We've sent a confirmation to <strong style="color: var(--ink); font-weight: 600;">{{ confirmEmail }}</strong>. See you soon.</p>
+              <div style="margin-top: 0.6rem;">
+                <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" on-click="{{ resetTour }}" hint-size="160px,44px">Book another tour</x-import>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Dark close ===== -->
+  <section style="position: relative; background: var(--charcoal); overflow: hidden; padding: clamp(4rem, 3rem + 4vw, 7rem) 0;">
+    <div style="position: absolute; top: -20%; right: -10%; width: 60%; height: 140%; background: radial-gradient(circle, color-mix(in oklch, var(--amber) 26%, transparent) 0%, transparent 62%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: var(--content); margin-inline: auto; padding-inline: var(--gutter); text-align: center;">
+      <span style="font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; color: var(--amber);">Come say hello</span>
+      <h2 style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 1.4rem + 2.6vw, 3.2rem); color: var(--cream); margin: 1rem auto 0; max-width: 18ch; line-height: 1.05;">The kettle's on. The door's open.</h2>
+      <p style="color: rgba(255,248,240,0.82); font-size: 1.1rem; line-height: 1.6; margin: 1.1rem auto 0; max-width: 44ch;">No appointment, no pressure — just a good cup and a warm room. We'd love to see you.</p>
+      <div style="display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; margin-top: 1.8rem;">
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="cream" href="#locations" arrow="{{ true }}" hint-size="160px,48px">Find a café</x-import>
+        <x-import component-from-global-scope="FrScopaDesignSystem_406815.Button" variant="ghost" href="#tour" hint-size="160px,48px">Book an Atelier tour</x-import>
+      </div>
+    </div>
+  </section>
+
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteFooter" logo-light="assets/frescopa-logo-light.svg" hint-size="100%,520px"></x-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    cart: 0, region: 'all', query: '',
+    form: { location: '', date: '', time: '', party: 'Just me', name: '', email: '', phone: '', interests: [] },
+    tourError: '', tourDone: false, confirm: null,
+  };
+  componentDidMount() {
+    let c = 0;
+    try { c = parseInt(localStorage.getItem('frescopa_cart') || '0', 10) || 0; } catch (e) {}
+    this.setState({ cart: c });
+    this._sync = (e) => { if (e.key === 'frescopa_cart') this.setState({ cart: parseInt(e.newValue || '0', 10) || 0 }); };
+    window.addEventListener('storage', this._sync);
+  }
+  componentWillUnmount() { if (this._sync) window.removeEventListener('storage', this._sync); }
+  setRegion = (r) => this.setState({ region: r });
+  onSearch = (e) => this.setState({ query: e.target.value });
+  setField = (k, v) => this.setState((s) => ({ form: { ...s.form, [k]: v }, tourError: '' }));
+  toggleInterest = (label) => this.setState((s) => {
+    const has = s.form.interests.includes(label);
+    const interests = has ? s.form.interests.filter((x) => x !== label) : [...s.form.interests, label];
+    return { form: { ...s.form, interests } };
+  });
+  submitTour = () => {
+    const f = this.state.form;
+    if (!f.location) return this.setState({ tourError: 'Please choose which café you\u2019d like to visit.' });
+    if (!f.date) return this.setState({ tourError: 'Please pick a date for your tour.' });
+    if (!f.time) return this.setState({ tourError: 'Please choose a time slot.' });
+    if (!f.name.trim()) return this.setState({ tourError: 'Please add your name.' });
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) return this.setState({ tourError: 'Please enter a valid email address.' });
+    this.setState({ tourDone: true, tourError: '', confirm: { ...f } });
+  };
+  resetTour = () => this.setState({
+    form: { location: '', date: '', time: '', party: 'Just me', name: '', email: '', phone: '', interests: [] },
+    tourError: '', tourDone: false, confirm: null,
+  });
+  renderVals() {
+    const nav = [
+      { label: 'The Atelier', href: 'landing.html' },
+      { label: 'Machines', href: 'machines.html' },
+      { label: 'Beverages', href: 'beverages.html' },
+      { label: 'Café', href: 'cafe.html' },
+      { label: 'Journal', href: 'blog.html' },
+    ];
+
+    const events = [
+      { day: 'Tuesday', name: 'Origins cupping', blurb: 'Taste three single-origin lots side by side and learn to name what you taste.', time: '6:30–7:30pm', price: 'Free' },
+      { day: 'Wednesday', name: 'Latte-art lab', blurb: 'Hands-on milk steaming and pour practice on the Atelier line. Beginners welcome.', time: '6:00–7:30pm', price: '$15' },
+      { day: 'Thursday', name: 'Home brewing 101', blurb: 'Dial in grind, dose and time for a filter cup you can repeat at home.', time: '6:30–8:00pm', price: 'Free' },
+      { day: 'Saturday', name: 'Slow morning cupping', blurb: 'A relaxed community tasting over pastries. Drop in, no booking needed.', time: '9:00–11:00am', price: 'Free' },
+    ];
+
+    const stats = [
+      { value: '1,200+', label: 'Cafés nationwide' },
+      { value: '190', label: 'Cities' },
+      { value: '48', label: 'States' },
+      { value: '12', label: 'Flagship showrooms' },
+    ];
+
+    const allLocations = [
+      { id: 'nyc-williamsburg', city: 'Brooklyn', state: 'NY', area: 'Williamsburg', region: 'east', name: 'Fréscopa Williamsburg', address: '134 N 6th St, Brooklyn, NY', hours: 'Mon–Sun · 7am–8pm', tags: ['Café', 'Showroom'] },
+      { id: 'boston-seaport', city: 'Boston', state: 'MA', area: 'Seaport', region: 'east', name: 'Fréscopa Seaport', address: '48 Harbor Way, Boston, MA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'boston-backbay', city: 'Boston', state: 'MA', area: 'Back Bay', region: 'east', name: 'Fréscopa Back Bay', address: '221 Newbury St, Boston, MA', hours: 'Mon–Sun · 6:30am–7pm', tags: ['Café'] },
+      { id: 'philly', city: 'Philadelphia', state: 'PA', area: 'Rittenhouse', region: 'east', name: 'Fréscopa Rittenhouse', address: '1820 Walnut St, Philadelphia, PA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Workshops'] },
+      { id: 'dc', city: 'Washington', state: 'DC', area: 'Georgetown', region: 'east', name: 'Fréscopa Georgetown', address: '3040 M St NW, Washington, DC', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'atlanta', city: 'Atlanta', state: 'GA', area: 'Ponce City', region: 'east', name: 'Fréscopa Ponce City Market', address: '675 Ponce De Leon Ave NE, Atlanta, GA', hours: 'Mon–Sun · 7am–8pm', tags: ['Café', 'Showroom', 'Workshops'] },
+      { id: 'chicago-westloop', city: 'Chicago', state: 'IL', area: 'West Loop', region: 'central', name: 'Fréscopa West Loop', address: '905 W Fulton Market, Chicago, IL', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom', 'Workshops'] },
+      { id: 'chicago-wicker', city: 'Chicago', state: 'IL', area: 'Wicker Park', region: 'central', name: 'Fréscopa Wicker Park', address: '1547 N Milwaukee Ave, Chicago, IL', hours: 'Mon–Sun · 6:30am–7pm', tags: ['Café'] },
+      { id: 'minneapolis', city: 'Minneapolis', state: 'MN', area: 'North Loop', region: 'central', name: 'Fréscopa North Loop', address: '215 N Washington Ave, Minneapolis, MN', hours: 'Mon–Sun · 7am–6pm', tags: ['Café', 'Workshops'] },
+      { id: 'kansascity', city: 'Kansas City', state: 'MO', area: 'Crossroads', region: 'central', name: 'Fréscopa Crossroads', address: '1801 Grand Blvd, Kansas City, MO', hours: 'Mon–Sun · 7am–6pm', tags: ['Café'] },
+      { id: 'denver', city: 'Denver', state: 'CO', area: 'RiNo', region: 'central', name: 'Fréscopa RiNo', address: '2601 Larimer St, Denver, CO', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'austin-congress', city: 'Austin', state: 'TX', area: 'South Congress', region: 'south', name: 'Fréscopa South Congress', address: '1601 S Congress Ave, Austin, TX', hours: 'Mon–Sun · 7am–6pm', tags: ['Café', 'Workshops'] },
+      { id: 'austin-domain', city: 'Austin', state: 'TX', area: 'The Domain', region: 'south', name: 'Fréscopa The Domain', address: '11700 Domain Blvd, Austin, TX', hours: 'Mon–Sun · 7am–8pm', tags: ['Café', 'Showroom'] },
+      { id: 'dallas', city: 'Dallas', state: 'TX', area: 'Deep Ellum', region: 'south', name: 'Fréscopa Deep Ellum', address: '2822 Main St, Dallas, TX', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'houston', city: 'Houston', state: 'TX', area: 'The Heights', region: 'south', name: 'Fréscopa The Heights', address: '714 Yale St, Houston, TX', hours: 'Mon–Sun · 7am–7pm', tags: ['Café'] },
+      { id: 'miami', city: 'Miami', state: 'FL', area: 'Wynwood', region: 'south', name: 'Fréscopa Wynwood', address: '2750 NW 3rd Ave, Miami, FL', hours: 'Mon–Sun · 7am–9pm', tags: ['Café', 'Showroom', 'Workshops'] },
+      { id: 'neworleans', city: 'New Orleans', state: 'LA', area: 'Warehouse District', region: 'south', name: 'Fréscopa Warehouse District', address: '640 Julia St, New Orleans, LA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Workshops'] },
+      { id: 'sf-ferry', city: 'San Francisco', state: 'CA', area: 'Ferry Building', region: 'west', name: 'Fréscopa Ferry Building', address: '1 Ferry Building, San Francisco, CA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'sf-hayes', city: 'San Francisco', state: 'CA', area: 'Hayes Valley', region: 'west', name: 'Fréscopa Hayes Valley', address: '556 Hayes St, San Francisco, CA', hours: 'Mon–Sun · 6:30am–7pm', tags: ['Café'] },
+      { id: 'seattle-caphill', city: 'Seattle', state: 'WA', area: 'Capitol Hill', region: 'west', name: 'Fréscopa Capitol Hill', address: '520 E Pine St, Seattle, WA', hours: 'Mon–Sun · 6:30am–7pm', tags: ['Café', 'Workshops'] },
+      { id: 'seattle-ballard', city: 'Seattle', state: 'WA', area: 'Ballard', region: 'west', name: 'Fréscopa Ballard', address: '5405 Ballard Ave NW, Seattle, WA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'portland', city: 'Portland', state: 'OR', area: 'Pearl District', region: 'west', name: 'Fréscopa Pearl District', address: '1130 NW Everett St, Portland, OR', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Workshops'] },
+      { id: 'la-arts', city: 'Los Angeles', state: 'CA', area: 'Arts District', region: 'west', name: 'Fréscopa Arts District', address: '720 E 3rd St, Los Angeles, CA', hours: 'Mon–Sun · 7am–8pm', tags: ['Café', 'Showroom', 'Workshops'] },
+      { id: 'la-silverlake', city: 'Los Angeles', state: 'CA', area: 'Silver Lake', region: 'west', name: 'Fréscopa Silver Lake', address: '2909 Sunset Blvd, Los Angeles, CA', hours: 'Mon–Sun · 6:30am–8pm', tags: ['Café'] },
+      { id: 'sandiego', city: 'San Diego', state: 'CA', area: 'Little Italy', region: 'west', name: 'Fréscopa Little Italy', address: '1660 India St, San Diego, CA', hours: 'Mon–Sun · 7am–7pm', tags: ['Café', 'Showroom'] },
+      { id: 'phoenix', city: 'Phoenix', state: 'AZ', area: 'Roosevelt Row', region: 'west', name: 'Fréscopa Roosevelt Row', address: '814 N 2nd St, Phoenix, AZ', hours: 'Mon–Sun · 7am–7pm', tags: ['Café'] },
+    ];
+
+    const region = this.state.region;
+    const q = this.state.query.trim().toLowerCase();
+    const filtered = allLocations.filter((l) => {
+      if (region !== 'all' && l.region !== region) return false;
+      if (!q) return true;
+      return [l.name, l.city, l.area, l.state, l.address].some((f) => f.toLowerCase().includes(q));
+    });
+    const locations = filtered.map((l) => ({ ...l, cityState: l.city + ', ' + l.state }));
+    const noResults = filtered.length === 0;
+    const countLabel = noResults
+      ? 'No matches'
+      : filtered.length + (filtered.length === 1 ? ' café near you' : ' cafés near you');
+
+    const defs = [
+      { key: 'all', label: 'All regions' },
+      { key: 'east', label: 'East' },
+      { key: 'central', label: 'Midwest' },
+      { key: 'south', label: 'South' },
+      { key: 'west', label: 'West' },
+    ];
+    const base = { fontFamily: 'var(--font-body)', fontSize: '0.88rem', fontWeight: 500, padding: '0.45rem 1rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.25s var(--ease-quint)' };
+    const regionPills = defs.map((d) => ({
+      label: d.label,
+      onClick: () => this.setRegion(d.key),
+      style: d.key === region
+        ? { ...base, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' }
+        : { ...base, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' },
+    }));
+
+    // ---- Atelier tour form ----
+    const form = this.state.form;
+    const mk = (k) => ({ v: form[k], on: (e) => this.setField(k, e.target.value) });
+    const fld = { location: mk('location'), date: mk('date'), time: mk('time'), party: mk('party'), name: mk('name'), email: mk('email'), phone: mk('phone') };
+    const showrooms = allLocations.filter((l) => l.tags.includes('Showroom')).map((l) => l.name + ' — ' + l.city + ', ' + l.state);
+    const tourLocations = ['Fréscopa SoHo, Flagship — New York, NY', ...showrooms];
+    const timeSlots = ['9:00 AM', '10:30 AM', '12:00 PM', '1:30 PM', '3:00 PM', '4:30 PM'];
+    const partySizes = ['Just me', '2 guests', '3 guests', '4 guests', '5+ guests'];
+    const chipBase = { fontFamily: 'var(--font-body)', fontSize: '0.82rem', fontWeight: 500, padding: '0.42rem 0.85rem', borderRadius: 'var(--r-pill)', cursor: 'pointer', transition: 'all 0.2s var(--ease-quint)' };
+    const interestChips = ['The Atelier line', 'Espresso & milk', 'Cold brew & tea', 'Bean subscriptions'].map((label) => {
+      const active = form.interests.includes(label);
+      return {
+        label, onClick: () => this.toggleInterest(label),
+        style: active
+          ? { ...chipBase, background: 'var(--burgundy)', color: 'var(--cream)', border: '1px solid var(--burgundy)' }
+          : { ...chipBase, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)' },
+      };
+    });
+    const inputStyle = { width: '100%', boxSizing: 'border-box', fontFamily: 'var(--font-body)', fontSize: '0.98rem', color: 'var(--ink)', background: 'var(--paper)', border: '1px solid var(--line)', borderRadius: '14px', padding: '0.75rem 0.95rem', outline: 'none' };
+
+    const c = this.state.confirm;
+    let confirmSummary = '', confirmName = '', confirmEmail = '';
+    if (c) {
+      confirmName = (c.name.trim().split(/\s+/)[0]) || 'there';
+      confirmEmail = c.email;
+      let dateStr = c.date;
+      try { dateStr = new Date(c.date + 'T00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }); } catch (e) {}
+      const cafe = c.location.split(' — ')[0];
+      confirmSummary = 'Your Atelier tour at ' + cafe + ' is requested for ' + dateStr + ' at ' + c.time + ', for ' + c.party.toLowerCase() + '.';
+    }
+
+    return {
+      nav, cart: this.state.cart, events, stats, locations, noResults, query: this.state.query, onSearch: this.onSearch, countLabel, regionPills,
+      fld, tourLocations, timeSlots, partySizes, interestChips, inputStyle,
+      tourError: this.state.tourError, tourOpen: !this.state.tourDone, tourDone: this.state.tourDone,
+      submitTour: this.submitTour, resetTour: this.resetTour,
+      confirmSummary, confirmName, confirmEmail,
+      goAccount: () => { window.location.href = 'myatelier.html'; },
+    };
+  }
+}
+</script>
+</body>
+</html>
