@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/effects.css">
 <link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/tokens/base.css">
 <link rel="stylesheet" href="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/styles.css">
+<link rel="stylesheet" href="shared/view-transitions.css">
 <script src="_ds/fr-scopa-design-system-40681532-d1a7-4dcb-94af-093bb0d56f27/_ds_bundle.js"></script>
 <style>
   body { margin: 0; }
@@ -92,7 +93,7 @@
 </template>
 <div style="font-family: var(--font-body); color: var(--ink); background: var(--paper);">
 
-  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="machines.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px"></x-import>
+  <x-import component-from-global-scope="FrScopaDesignSystem_406815.SiteHeader" logo-light="assets/frescopa-logo-light.svg" logo-dark="assets/frescopa-logo.svg" nav-items="{{ nav }}" active-href="machines.html" brand-href="index.html" cart-count="{{ cart }}" on-account="{{ goAccount }}" solid="{{ true }}" hint-size="100%,72px" data-vt="site-header"></x-import>
 
   <!-- ===== Product ===== -->
   <section style="background: var(--paper); padding: calc(72px + clamp(1.5rem, 1rem + 2vw, 2.6rem)) 0 var(--section-y);">
@@ -109,7 +110,7 @@
 
         <!-- Gallery -->
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <div style="border-radius: var(--r-xl); overflow: hidden; flex: 1; min-height: 340px; background: var(--paper-3); box-shadow: var(--shadow-md);">
+          <div data-vt="atelier-hero" style="border-radius: var(--r-xl); overflow: hidden; flex: 1; min-height: 340px; background: var(--paper-3); box-shadow: var(--shadow-md);">
             <sc-if value="{{ show0 }}" hint-placeholder-val="{{ true }}">
               <img src="assets/images/hero-machine.jpg" alt="The Atelier on a sunlit counter." style="width: 100%; height: 100%; object-fit: cover; object-position: center 44%;" />
             </sc-if>
